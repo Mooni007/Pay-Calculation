@@ -20,9 +20,7 @@ body{
 }
 
 /* ===== TOP HEADING SECTION ===== */
-.main-heading{
-  text-align:center;margin-bottom:8px;
-}
+.main-heading{text-align:center;margin-bottom:8px;}
 .main-heading h1{
   font-size:22px;font-weight:700;text-transform:uppercase;
   letter-spacing:2px;color:#1a1a1a;margin:0;padding:0;
@@ -41,9 +39,7 @@ body{
 }
 
 /* ===== PARTICULARS FORM ===== */
-.particulars-form{
-  max-width:650px;margin:0 auto;
-}
+.particulars-form{max-width:650px;margin:0 auto;}
 .form-row{
   display:flex;align-items:center;margin-bottom:16px;
   border:1px solid #d5d5d5;border-radius:4px;
@@ -60,17 +56,13 @@ body{
   font-size:13px;font-family:inherit;color:#333;
   background:#fff;width:100%;
 }
-.form-row input:focus,.form-row select:focus{
-  background:#fafafa;
-}
+.form-row input:focus,.form-row select:focus{background:#fafafa;}
 .form-row select{
-  cursor:pointer;
-  appearance:none;-webkit-appearance:none;-moz-appearance:none;
+  cursor:pointer;appearance:none;-webkit-appearance:none;-moz-appearance:none;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23555' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'%3E%3C/path%3E%3C/svg%3E");
   background-repeat:no-repeat;background-position:right 14px center;
   padding-right:36px;
 }
-.form-row input::placeholder{color:#aaa;}
 
 /* ===== BUTTON ===== */
 .btn-row{text-align:center;margin:25px 0;}
@@ -82,8 +74,6 @@ body{
   background:#1a1a1a;color:#fff;
 }
 .btn:hover{background:#333;box-shadow:0 2px 8px rgba(0,0,0,.2);}
-.btn:active{transform:scale(.98);}
-
 .btn-secondary{
   display:inline-block;border:none;border-radius:4px;
   padding:10px 24px;font-size:13px;font-weight:600;
@@ -96,9 +86,7 @@ body{
 .btn-recalc:hover{background:#f5f5f5;}
 
 /* ===== RESULT CARDS ===== */
-.result-cards{
-  max-width:450px;margin:0 auto 25px auto;
-}
+.result-cards{max-width:450px;margin:0 auto 25px auto;}
 .final-pay-card{
   background:#fff;border:2px solid #1a1a1a;
   border-radius:4px;padding:16px 20px;text-align:center;
@@ -107,12 +95,8 @@ body{
   font-size:12px;font-weight:700;text-transform:uppercase;
   letter-spacing:1px;color:#555;margin-bottom:6px;
 }
-.final-pay-card .card-amount{
-  font-size:28px;font-weight:700;color:#1a1a1a;
-}
-.final-pay-card .card-detail{
-  font-size:11px;color:#777;margin-top:6px;
-}
+.final-pay-card .card-amount{font-size:28px;font-weight:700;color:#1a1a1a;}
+.final-pay-card .card-detail{font-size:11px;color:#777;margin-top:6px;}
 
 /* ===== TABLE SECTION ===== */
 .table-section{margin-top:10px;}
@@ -137,15 +121,12 @@ table.pay-table tbody td{
   vertical-align:middle;color:#555;font-size:12px;
 }
 
-/* Highlighted rows - bold + background */
-table.pay-table tbody tr.row-rev td{background:#fff3f3 !important;font-weight:700;color:#c62828;}
-table.pay-table tbody tr.row-mustered td{background:#f0f0ff !important;font-weight:700;color:#1a237e;}
-table.pay-table tbody tr.row-pension td{background:#f0f8ff !important;font-weight:700;color:#0277bd;}
-table.pay-table tbody tr.row-prom td{background:#fdf0ff !important;font-weight:700;color:#6a1b9a;}
-table.pay-table tbody tr.row-upgrade td{background:#fff8f0 !important;font-weight:700;color:#e65100;}
-table.pay-table tbody tr.row-advinc td{background:#f0fff4 !important;font-weight:700;color:#2e7d32;}
-
-/* Normal rows */
+table.pay-table tbody tr.row-rev td{background:#fff3f3 !important;font-weight:700 !important;color:#c62828;}
+table.pay-table tbody tr.row-mustered td{background:#f0f0ff !important;font-weight:700 !important;color:#1a237e;}
+table.pay-table tbody tr.row-pension td{background:#f0f8ff !important;font-weight:700 !important;color:#0277bd;}
+table.pay-table tbody tr.row-prom td{background:#fdf0ff !important;font-weight:700 !important;color:#6a1b9a;}
+table.pay-table tbody tr.row-upgrade td{background:#fff8f0 !important;font-weight:700 !important;color:#e65100;}
+table.pay-table tbody tr.row-advinc td{background:#f0fff4 !important;font-weight:700 !important;color:#2e7d32;}
 table.pay-table tbody tr.row-inc td{background:#fff;font-weight:400;color:#555;}
 table.pay-table tbody tr.row-inc td.td-event{text-align:left;}
 
@@ -183,76 +164,109 @@ table.pay-table tbody tr.row-inc td.td-event{text-align:left;}
 }
 .hidden{display:none!important;}
 
-/* ===== MODALS ===== */
+/* ===== ALL PROFESSIONAL MODALS ===== */
 .modal-overlay{
   display:none;position:fixed;top:0;left:0;width:100%;height:100%;
-  background:rgba(0,0,0,.5);z-index:10000;align-items:center;
+  background:rgba(0,0,0,.55);z-index:10000;align-items:center;
   justify-content:center;padding:20px;
 }
 .modal-overlay.active{display:flex;}
 .modal-box{
-  background:#fff;border-radius:6px;width:480px;max-width:95vw;
-  max-height:90vh;box-shadow:0 10px 40px rgba(0,0,0,.25);
+  background:#fff;border-radius:8px;width:520px;max-width:95vw;
+  max-height:90vh;box-shadow:0 15px 50px rgba(0,0,0,.3);
   overflow:hidden;display:flex;flex-direction:column;
+  animation:modalIn 0.25s ease;
 }
+@keyframes modalIn{from{transform:scale(.92) translateY(15px);opacity:0;}to{transform:scale(1) translateY(0);opacity:1;}}
+
 .modal-header{
-  background:#1a1a1a;color:#fff;padding:14px 20px;
-  font-size:14px;font-weight:700;letter-spacing:.5px;
+  background:#1a1a1a;color:#fff;padding:16px 22px;
+  font-size:15px;font-weight:700;letter-spacing:.5px;
   display:flex;align-items:center;justify-content:space-between;
+  border-bottom:1px solid #333;
 }
 .modal-header .modal-close{
-  background:none;border:none;color:#fff;font-size:20px;cursor:pointer;
-  padding:0 4px;opacity:.8;
+  background:rgba(255,255,255,.12);border:none;color:#fff;
+  width:32px;height:32px;border-radius:50%;font-size:16px;
+  cursor:pointer;transition:all 0.2s;
+  display:flex;align-items:center;justify-content:center;
 }
-.modal-header .modal-close:hover{opacity:1;}
-.modal-body{padding:20px;overflow-y:auto;flex:1;}
-.modal-footer{
-  padding:14px 20px;display:flex;gap:10px;justify-content:flex-end;
-  border-top:1px solid #e0e0e0;background:#fafafa;
+.modal-header .modal-close:hover{background:rgba(255,255,255,.25);transform:rotate(90deg);}
+
+.modal-body{padding:22px 24px;overflow-y:auto;flex:1;background:#fafafa;}
+.modal-body .modal-error{
+  background:#fff5f5;border:1px solid #ffcdd2;border-radius:4px;
+  color:#c62828;padding:10px 14px;font-size:12px;margin-bottom:14px;display:none;
 }
-.modal-field{margin-bottom:14px;}
+.modal-body .modal-error.show{display:block;}
+
+.modal-field{margin-bottom:16px;}
 .modal-field label{
-  display:block;font-weight:700;color:#1a1a1a;margin-bottom:5px;
+  display:block;font-weight:700;color:#1a1a1a;margin-bottom:6px;
   font-size:12px;text-transform:uppercase;letter-spacing:.5px;
 }
 .modal-field input,.modal-field select{
-  width:100%;border:1px solid #d5d5d5;border-radius:4px;
-  padding:10px 12px;font-size:13px;font-family:inherit;
+  width:100%;border:2px solid #e0e0e0;border-radius:6px;
+  padding:11px 14px;font-size:13px;font-family:inherit;
   color:#333;outline:none;background:#fff;
+  transition:border 0.2s;
 }
 .modal-field input:focus,.modal-field select:focus{
-  border-color:#1a1a1a;box-shadow:0 0 0 2px rgba(0,0,0,.05);
+  border-color:#1a1a1a;box-shadow:0 0 0 3px rgba(0,0,0,.06);
+  background:#fff;
 }
-.modal-field .hint{font-size:11px;color:#888;margin-top:4px;line-height:1.4;}
+.modal-field .hint{font-size:11px;color:#888;margin-top:5px;line-height:1.4;}
+.modal-field .hint b{color:#555;}
 
+.modal-footer{
+  padding:14px 24px;display:flex;gap:10px;justify-content:flex-end;
+  border-top:1px solid #e0e0e0;background:#fff;
+}
 .btn-modal-ok{
-  background:#1a1a1a;color:#fff;border:none;border-radius:4px;
-  padding:9px 28px;font-size:12px;font-weight:700;cursor:pointer;
-  text-transform:uppercase;letter-spacing:.5px;
+  background:#1a1a1a;color:#fff;border:none;border-radius:6px;
+  padding:10px 30px;font-size:13px;font-weight:700;cursor:pointer;
+  text-transform:uppercase;letter-spacing:.5px;transition:all 0.2s;
 }
 .btn-modal-ok:hover{background:#333;}
 .btn-modal-cancel{
-  background:#fff;color:#555;border:1px solid #ccc;border-radius:4px;
-  padding:9px 22px;font-size:12px;cursor:pointer;
+  background:#fff;color:#555;border:2px solid #ddd;border-radius:6px;
+  padding:10px 24px;font-size:13px;cursor:pointer;font-weight:600;transition:all 0.2s;
 }
-.btn-modal-cancel:hover{background:#f5f5f5;}
-.modal-error{
-  background:#fff5f5;border:1px solid #ffcdd2;border-radius:4px;
-  color:#c62828;padding:10px 14px;font-size:12px;margin-bottom:12px;display:none;
+.btn-modal-cancel:hover{background:#f5f5f5;border-color:#bbb;}
+.btn-modal-delete{
+  background:#c62828;color:#fff;border:none;border-radius:6px;
+  padding:10px 30px;font-size:13px;font-weight:700;cursor:pointer;
+  text-transform:uppercase;letter-spacing:.5px;transition:all 0.2s;
 }
-.modal-error.show{display:block;}
+.btn-modal-delete:hover{background:#b71c1c;}
 
-/* ===== DETAIL MODAL ===== */
-.detail-row{
+/* ===== CONFIRMATION MODAL (Professional) ===== */
+.confirm-icon{
+  width:60px;height:60px;border-radius:50%;margin:0 auto 16px auto;
+  display:flex;align-items:center;justify-content:center;
+  font-size:28px;
+}
+.confirm-icon.warning{background:#fff3e0;color:#e65100;}
+.confirm-message{
+  text-align:center;font-size:14px;color:#333;margin-bottom:6px;
+  font-weight:600;line-height:1.5;
+}
+.confirm-detail{
+  text-align:center;font-size:12px;color:#888;margin-bottom:4px;
+}
+
+/* ===== VIEW DETAIL MODAL ===== */
+.detail-list{padding:0;}
+.detail-item{
   display:flex;justify-content:space-between;align-items:center;
-  padding:12px 0;border-bottom:1px solid #f0f0f0;
+  padding:13px 0;border-bottom:1px solid #eee;
 }
-.detail-row:last-child{border-bottom:none;}
-.detail-label{
+.detail-item:last-child{border-bottom:none;}
+.detail-key{
   font-weight:700;color:#555;font-size:11px;text-transform:uppercase;
-  letter-spacing:.5px;min-width:100px;
+  letter-spacing:.5px;min-width:110px;
 }
-.detail-value{font-weight:600;color:#1a1a1a;font-size:14px;text-align:right;}
+.detail-val{font-weight:600;color:#1a1a1a;font-size:14px;text-align:right;}
 
 /* ===== PRINT PREVIEW ===== */
 .print-preview-overlay{
@@ -262,23 +276,24 @@ table.pay-table tbody tr.row-inc td.td-event{text-align:left;}
 }
 .print-preview-overlay.active{display:flex;}
 .print-preview-container{
-  background:#fff;border-radius:6px;width:95vw;max-width:900px;
-  max-height:90vh;box-shadow:0 10px 40px rgba(0,0,0,.3);
+  background:#fff;border-radius:8px;width:95vw;max-width:950px;
+  max-height:90vh;box-shadow:0 15px 50px rgba(0,0,0,.3);
   display:flex;flex-direction:column;overflow:hidden;
 }
 .print-content{flex:1;overflow-y:auto;padding:24px;}
 
 /* ===== ACTION MENU ===== */
 .action-menu{
-  position:fixed;background:#fff;border:1px solid #1a1a1a;
-  border-radius:4px;padding:4px 0;z-index:15000;min-width:240px;
-  box-shadow:0 8px 30px rgba(0,0,0,.2);font-size:13px;
+  position:fixed;background:#fff;border:2px solid #1a1a1a;
+  border-radius:8px;padding:6px 0;z-index:15000;min-width:270px;
+  box-shadow:0 10px 35px rgba(0,0,0,.22);font-size:13px;
 }
 .action-menu-item{
-  padding:10px 16px;cursor:pointer;transition:background 0.15s;
-  white-space:nowrap;
+  padding:11px 18px;cursor:pointer;transition:all 0.15s;
+  white-space:nowrap;display:flex;align-items:center;gap:10px;
+  font-weight:500;
 }
-.action-menu-item:hover{background:#f5f5f5;}
+.action-menu-item:hover{background:#f5f5f5;padding-left:22px;}
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:768px){
@@ -294,7 +309,6 @@ table.pay-table tbody tr.row-inc td.td-event{text-align:left;}
 @media(max-width:480px){
   .page{padding:15px 10px;}
   .main-heading h1{font-size:17px;}
-  .main-heading .subtitle{font-size:10px;}
   .section-title{font-size:13px;}
   table.pay-table{min-width:500px;font-size:10px;}
 }
@@ -347,56 +361,63 @@ table.pay-table tbody tr.row-inc td.td-event{text-align:left;}
 
   <!-- RESULT AREA -->
   <div id="result_area" class="hidden">
-    <!-- ACTION BUTTONS -->
     <div class="btn-row">
       <button class="btn-secondary btn-print" onclick="openPrintPreview()">🖨 PRINT / SAVE PDF</button>
       <button class="btn-secondary btn-recalc" onclick="calculatePay()">🔄 RECALCULATE</button>
     </div>
-
-    <!-- FINAL PAY CARD -->
-    <div class="result-cards">
-      <div id="summary_boxes"></div>
-    </div>
-
-    <!-- TABLE -->
+    <div class="result-cards"><div id="summary_boxes"></div></div>
     <div class="table-section">
       <div class="table-title">Year-Wise Pay Details</div>
-      <div class="table-container">
-        <div id="pay_table_area"></div>
-      </div>
+      <div class="table-container"><div id="pay_table_area"></div></div>
     </div>
   </div>
 </div>
 
-<!-- ===== ACTION MODAL ===== -->
+<!-- ===== UNIFIED ACTION MODAL ===== -->
 <div class="modal-overlay" id="main_modal">
   <div class="modal-box">
     <div class="modal-header"><span id="modal_title">Add Entry</span><button class="modal-close" onclick="closeModal()">✕</button></div>
     <div class="modal-body" id="modal_body"></div>
     <div class="modal-footer">
       <button class="btn-modal-cancel" onclick="closeModal()">Cancel</button>
-      <button class="btn-modal-ok" onclick="applyModalAction()">✓ OK</button>
+      <button class="btn-modal-ok" onclick="applyModalAction()">✓ Apply</button>
     </div>
   </div>
 </div>
 
-<!-- ===== VIEW MODAL ===== -->
+<!-- ===== PROFESSIONAL CONFIRMATION MODAL ===== -->
+<div class="modal-overlay" id="confirm_modal">
+  <div class="modal-box" style="width:420px;">
+    <div class="modal-header"><span>⚠ Confirm Delete</span><button class="modal-close" onclick="closeConfirmModal()">✕</button></div>
+    <div class="modal-body" style="text-align:center;padding:24px;">
+      <div class="confirm-icon warning">⚠</div>
+      <div class="confirm-message">Are you sure you want to delete this entry?</div>
+      <div class="confirm-detail" id="confirm_detail">This action cannot be undone.</div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-modal-cancel" onclick="closeConfirmModal()">Cancel</button>
+      <button class="btn-modal-delete" id="confirm_delete_btn" onclick="confirmDelete()">🗑 Delete</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== UNIFIED VIEW DETAIL MODAL ===== -->
 <div class="modal-overlay" id="view_modal">
   <div class="modal-box">
-    <div class="modal-header"><span>Entry Details</span><button class="modal-close" onclick="document.getElementById('view_modal').classList.remove('active')">✕</button></div>
-    <div class="modal-body" id="view_modal_body"></div>
+    <div class="modal-header"><span>📋 Entry Details</span><button class="modal-close" onclick="document.getElementById('view_modal').classList.remove('active')">✕</button></div>
+    <div class="modal-body"><div class="detail-list" id="view_modal_body"></div></div>
     <div class="modal-footer"><button class="btn-modal-cancel" onclick="document.getElementById('view_modal').classList.remove('active')">Close</button></div>
   </div>
 </div>
 
-<!-- ===== PRINT PREVIEW ===== -->
+<!-- ===== UNIFIED PRINT PREVIEW MODAL ===== -->
 <div class="print-preview-overlay" id="print_preview_overlay">
   <div class="print-preview-container">
-    <div class="modal-header" style="border-radius:0;">
+    <div class="modal-header" style="border-radius:8px 8px 0 0;">
       <span>🖨 Print Preview - Pay Detail Summary</span>
       <div style="display:flex;gap:8px;">
-        <button class="btn-modal-ok" style="padding:6px 14px;font-size:11px;" onclick="saveAsPDF()">💾 PDF</button>
-        <button class="btn-modal-ok" style="padding:6px 14px;font-size:11px;background:#333;" onclick="printDocument()">🖨 Print</button>
+        <button class="btn-modal-ok" style="padding:7px 16px;font-size:11px;" onclick="saveAsPDF()">💾 PDF</button>
+        <button class="btn-modal-ok" style="padding:7px 16px;font-size:11px;background:#333;" onclick="printDocument()">🖨 Print</button>
         <button class="modal-close" onclick="closePrintPreview()">✕</button>
       </div>
     </div>
@@ -411,7 +432,7 @@ table.pay-table tbody tr.row-inc td.td-event{text-align:left;}
 
 <script>
 'use strict';
-console.log('Pay Detail Summary - Final Version Ready');
+console.log('Pay Detail Summary - Final Version');
 
 /* ================================================================
    COMPLETE PAY SCALE DATA
@@ -433,7 +454,8 @@ const PAY_EVENTS=[{date:'2001-12-01',type:'inc',label:'Annual Inc on 01 Dec 2001
 
 // Helper functions
 function pD(s){if(!s)return null;const p=s.split('-');if(p.length!==3)return null;const d=new Date(+p[0],+p[1]-1,+p[2]);return isNaN(d.getTime())?null:d;}
-function fD(d){if(!d)return'';return String(d.getDate()).padStart(2,'0')+' '+['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][d.getMonth()]+' '+d.getFullYear();}
+// Date format: dd/mm/yyyy
+function fD(d){if(!d)return'';return String(d.getDate()).padStart(2,'0')+'/'+String(d.getMonth()+1).padStart(2,'0')+'/'+d.getFullYear();}
 function jN(d){return(d.getMonth()+1)>=6&&(d.getMonth()+1)<=11;}
 function gSR(s){return PAY_SCALES[s]||[];}
 function gSE(s,y){return gSR(s).find(r=>r.year===y)||null;}
@@ -448,21 +470,37 @@ function fNH(s,sy,amt){const r=gSE(s,sy);if(!r)return amt;for(const st of r.stag
 function gASO(sel){return['Z-1','Z-2','Z-3','Y-1','Y-2','Y-3','Y-4','X-1','X-2','X-3','X-4'].map(s=>`<option value="${s}" ${s===sel?'selected':''}>${s}</option>`).join('');}
 
 let G_R=[],G_MD=null,G_RD=null,G_IS='',G_MA=null,G_MI=null;
+let G_PENDING_DELETE_IDX=null; // Track which row to delete
 
-// ============ MAIN CALCULATION ============
+// ============ PROFESSIONAL CONFIRMATION DIALOG ============
+function confirmDeleteRow(idx){
+  G_PENDING_DELETE_IDX=idx;
+  const row=G_R[idx];
+  if(row){
+    document.getElementById('confirm_detail').textContent=`Entry: ${row.eventLabel}`;
+  }
+  document.getElementById('confirm_modal').classList.add('active');
+}
+function closeConfirmModal(){
+  document.getElementById('confirm_modal').classList.remove('active');
+  G_PENDING_DELETE_IDX=null;
+}
+function confirmDelete(){
+  if(G_PENDING_DELETE_IDX!==null){
+    G_R.splice(G_PENDING_DELETE_IDX,1);
+    renderTable();
+  }
+  closeConfirmModal();
+}
+
 function calculatePay(){
-  const mustred=document.getElementById('inp_mustred').value;
-  const retire=document.getElementById('inp_retire').value;
-  const scale=document.getElementById('inp_scale').value;
-  document.getElementById('error_area').classList.add('hidden');
-  document.getElementById('result_area').classList.add('hidden');
-  if(!mustred||!retire||!scale){showErr('Please fill Date of Mustered, Date of Retirement, and Pay Scale fields.');return;}
-  const mD=pD(mustred),rD=pD(retire);
-  if(!mD||!rD||rD<=mD){showErr('Invalid dates. Retirement must be after Mustered.');return;}
-  if(!gSR(scale).length){showErr('Scale data not found.');return;}
+  const mustred=document.getElementById('inp_mustred').value,retire=document.getElementById('inp_retire').value,scale=document.getElementById('inp_scale').value;
+  document.getElementById('error_area').classList.add('hidden');document.getElementById('result_area').classList.add('hidden');
+  if(!mustred||!retire||!scale){showErr('Please fill all fields.');return;}
+  const mD=pD(mustred),rD=pD(retire);if(!mD||!rD||rD<=mD){showErr('Invalid dates.');return;}
+  if(!gSR(scale).length){showErr('Scale not found.');return;}
   G_MD=mD;G_RD=rD;G_IS=scale;
-  const iRY=gARY(scale,mD),iR=gSE(scale,iRY);
-  const mJN=jN(mD),iP=iR.stages[0];
+  const iRY=gARY(scale,mD),iR=gSE(scale,iRY),mJN=jN(mD),iP=iR.stages[0];
   let cP=iP,cS=scale,cRY=iRY;
   const rows=[{id:'r1',eventLabel:`Mustered in Scale ${scale}`,date:mD,scale:cS,scaleRevYear:cRY,pay:cP,changeAmt:0,remark:'Initial Stage 0',type:'mustered',skipNextInc:mJN}];
   let sk=mJN;
@@ -473,209 +511,97 @@ function calculatePay(){
     else if(ev.type==='rev'){if(!gSE(cS,ev.scaleYear))continue;const pr=cP,oRY=cRY;cRY=ev.scaleYear;cP=fOR(cS,oRY,cRY,pr);rows.push({id:'r'+Date.now()+Math.random(),eventLabel:ev.label,date:ed,scale:cS,scaleRevYear:cRY,pay:cP,changeAmt:cP-pr,remark:'Same stage revised',type:'rev'});}
   }
   const rJN=jN(rD);if(rJN&&!iMS(cS,cRY,cP)){const pr=cP;cP=aI(cS,cRY,cP);rows.push({id:'r'+Date.now()+Math.random(),eventLabel:'Pension Increment',date:rD,scale:cS,scaleRevYear:cRY,pay:cP,changeAmt:cP-pr,remark:'Retired Jun-Nov',type:'pension'});}
-  G_R=rows;
-  // Update both card and table
-  updateFinalPayCard();
-  renderTable();
+  G_R=rows;updateFinalPayCard();renderTable();
   document.getElementById('result_area').classList.remove('hidden');
   document.getElementById('result_area').scrollIntoView({behavior:'smooth'});
 }
 
-// ============ UPDATE FINAL PAY CARD (called after any change) ============
 function updateFinalPayCard(){
-  if(!G_R.length)return;
-  const lR=G_R[G_R.length-1];
-  const rJN=jN(G_RD);
+  if(!G_R.length)return;const lR=G_R[G_R.length-1],rJN=jN(G_RD);
   document.getElementById('summary_boxes').innerHTML=`
-    <div class="final-pay-card">
-      <div class="card-label">Final Basic Pay at Retirement</div>
-      <div class="card-amount">Rs. ${lR.pay.toLocaleString()}</div>
-      <div class="card-detail">Scale: ${lR.scale} | Retirement: ${fD(G_RD)}${rJN?' | Pension Added':''}</div>
-    </div>`;
+    <div class="final-pay-card"><div class="card-label">Final Basic Pay at Retirement</div><div class="card-amount">Rs. ${lR.pay.toLocaleString()}</div><div class="card-detail">Scale: ${lR.scale} | Retirement: ${fD(G_RD)}${rJN?' | Pension Added':''}</div></div>`;
 }
 
-// ============ RENDER TABLE ============
 function renderTable(){
-  G_R.forEach((r,i)=>r.sno=i+1);
-  const lR=G_R[G_R.length-1];
+  G_R.forEach((r,i)=>r.sno=i+1);const lR=G_R[G_R.length-1];
   let h=`<table class="pay-table"><thead><tr><th>S.No</th><th>Pay Details</th><th>Pay Scale</th><th>Basic Pay (Rs)</th><th>Change (Rs)</th><th>Remarks</th><th>Actions</th></tr></thead><tbody>`;
-  G_R.forEach((r,idx)=>{
-    const rc=getRC(r.type),sc=gSS(r.scale,r.scaleRevYear);
-    const cc=r.changeAmt>0?'td-chg pos':(r.changeAmt<0?'td-chg neg':'td-chg');
-    const ct=r.changeAmt>0?'+'+r.changeAmt.toLocaleString():(r.changeAmt<0?r.changeAmt.toLocaleString():'—');
-    h+=`<tr class="${rc}"><td class="td-sno">${r.sno}</td><td class="td-event">${r.eventLabel}</td><td class="td-scale">${r.scale}<br><small>(${sc})</small></td><td class="td-pay">${r.pay.toLocaleString()}</td><td class="${cc}">${ct}</td><td class="td-remark">${r.remark}</td><td class="td-actions"><button class="action-btn view-btn" title="View" onclick="viewRow(${idx})">🔍</button><button class="action-btn add-btn" title="Add" onclick="showActionMenu(${idx},event)">+</button><button class="action-btn delete-btn" title="Delete" onclick="deleteRow(${idx})">✕</button></td></tr>`;
-  });
+  G_R.forEach((r,idx)=>{const rc=getRC(r.type),sc=gSS(r.scale,r.scaleRevYear),cc=r.changeAmt>0?'td-chg pos':(r.changeAmt<0?'td-chg neg':'td-chg'),ct=r.changeAmt>0?'+'+r.changeAmt.toLocaleString():(r.changeAmt<0?r.changeAmt.toLocaleString():'—');
+    h+=`<tr class="${rc}"><td class="td-sno">${r.sno}</td><td class="td-event">${r.eventLabel}</td><td class="td-scale">${r.scale}<br><small>(${sc})</small></td><td class="td-pay">${r.pay.toLocaleString()}</td><td class="${cc}">${ct}</td><td class="td-remark">${r.remark}</td><td class="td-actions"><button class="action-btn view-btn" title="View" onclick="viewRow(${idx})">🔍</button><button class="action-btn add-btn" title="Add" onclick="showActionMenu(${idx},event)">+</button><button class="action-btn delete-btn" title="Delete" onclick="confirmDeleteRow(${idx})">✕</button></td></tr>`;});
   h+=`</tbody></table>`;
   if(lR)h+=`<div class="pay-summary-footer"><b>Final Basic Pay at Retirement:</b> <span style="font-weight:700;margin:0 8px;">Rs. ${lR.pay.toLocaleString()}</span> | <b>Scale:</b> ${lR.scale} | <b>Retirement:</b> ${fD(G_RD)}</div>`;
-  document.getElementById('pay_table_area').innerHTML=h;
-  // Update card whenever table renders
-  updateFinalPayCard();
-}
+  document.getElementById('pay_table_area').innerHTML=h;updateFinalPayCard();}
 
-function getRC(t){
-  switch(t){
-    case'mustered':return'row-mustered';
-    case'rev':return'row-rev';
-    case'pension':return'row-pension';
-    case'prom':return'row-prom';
-    case'upgrade':return'row-upgrade';
-    case'advinc':return'row-advinc';
-    case'inc-skip':return'row-inc';
-    default:return'row-inc';
-  }
-}
+function getRC(t){switch(t){case'mustered':return'row-mustered';case'rev':return'row-rev';case'pension':return'row-pension';case'prom':return'row-prom';case'upgrade':return'row-upgrade';case'advinc':return'row-advinc';case'inc-skip':return'row-inc';default:return'row-inc';}}
 
-// ============ DELETE ROW (updates card after deletion) ============
-function deleteRow(idx){
-  if(!confirm('Delete this entry?'))return;
-  G_R.splice(idx,1);
-  renderTable(); // This now calls updateFinalPayCard() internally
-}
+function viewRow(idx){const r=G_R[idx];if(!r)return;const sc=gSS(r.scale,r.scaleRevYear);document.getElementById('view_modal_body').innerHTML=`
+  <div class="detail-item"><span class="detail-key">S.No</span><span class="detail-val">${r.sno}</span></div>
+  <div class="detail-item"><span class="detail-key">Event</span><span class="detail-val">${r.eventLabel}</span></div>
+  <div class="detail-item"><span class="detail-key">Date</span><span class="detail-val">${fD(r.date)}</span></div>
+  <div class="detail-item"><span class="detail-key">Scale</span><span class="detail-val">${r.scale} (${sc})</span></div>
+  <div class="detail-item"><span class="detail-key">Basic Pay</span><span class="detail-val" style="font-weight:700;">Rs. ${r.pay.toLocaleString()}</span></div>
+  <div class="detail-item"><span class="detail-key">Change</span><span class="detail-val" style="color:${r.changeAmt>0?'#2e7d32':r.changeAmt<0?'#c62828':'inherit'}">${r.changeAmt>0?'+':''}${r.changeAmt.toLocaleString()}</span></div>
+  <div class="detail-item"><span class="detail-key">Type</span><span class="detail-val">${r.type.toUpperCase()}</span></div>
+  <div class="detail-item"><span class="detail-key">Remarks</span><span class="detail-val">${r.remark}</span></div>`;
+  document.getElementById('view_modal').classList.add('active');}
 
-// ============ VIEW ROW ============
-function viewRow(idx){
-  const r=G_R[idx];if(!r)return;
-  const sc=gSS(r.scale,r.scaleRevYear);
-  document.getElementById('view_modal_body').innerHTML=`
-    <div class="detail-row"><span class="detail-label">S.No</span><span class="detail-value">${r.sno}</span></div>
-    <div class="detail-row"><span class="detail-label">Event</span><span class="detail-value">${r.eventLabel}</span></div>
-    <div class="detail-row"><span class="detail-label">Date</span><span class="detail-value">${fD(r.date)}</span></div>
-    <div class="detail-row"><span class="detail-label">Scale</span><span class="detail-value">${r.scale} (${sc})</span></div>
-    <div class="detail-row"><span class="detail-label">Basic Pay</span><span class="detail-value" style="font-weight:700;">Rs. ${r.pay.toLocaleString()}</span></div>
-    <div class="detail-row"><span class="detail-label">Change</span><span class="detail-value" style="color:${r.changeAmt>0?'#2e7d32':r.changeAmt<0?'#c62828':'inherit'}">${r.changeAmt>0?'+':''}${r.changeAmt.toLocaleString()}</span></div>
-    <div class="detail-row"><span class="detail-label">Type</span><span class="detail-value">${r.type.toUpperCase()}</span></div>
-    <div class="detail-row"><span class="detail-label">Remarks</span><span class="detail-value">${r.remark}</span></div>`;
-  document.getElementById('view_modal').classList.add('active');
-}
-
-// ============ ACTION MENU ============
-function showActionMenu(idx,event){
-  event.stopPropagation();
-  const ex=document.getElementById('action_menu');if(ex)ex.remove();
+function showActionMenu(idx,event){event.stopPropagation();const ex=document.getElementById('action_menu');if(ex)ex.remove();
   const m=document.createElement('div');m.id='action_menu';m.className='action-menu';
   [{l:'⬆ Upgradation to Next Scale',a:'upgradation'},{l:'🎓 Advance Increment (Higher Education)',a:'advinc'},{l:'⭐ Promotion',a:'promotion'}].forEach(x=>{
-    const item=document.createElement('div');item.className='action-menu-item';item.textContent=x.l;
-    item.onclick=()=>{m.remove();openModal(idx,x.a);};m.appendChild(item);
-  });
-  document.body.appendChild(m);
-  const rect=event.target.getBoundingClientRect();
-  m.style.left=Math.min(rect.left-100,window.innerWidth-260)+'px';
-  m.style.top=Math.min(rect.bottom+5,window.innerHeight-180)+'px';
-  setTimeout(()=>document.addEventListener('click',function c(e){if(!m.contains(e.target)){m.remove();document.removeEventListener('click',c);}}),10);
-}
+    const item=document.createElement('div');item.className='action-menu-item';item.textContent=x.l;item.onclick=()=>{m.remove();openModal(idx,x.a);};m.appendChild(item);});
+  document.body.appendChild(m);const rect=event.target.getBoundingClientRect();m.style.left=Math.min(rect.left-100,window.innerWidth-280)+'px';m.style.top=Math.min(rect.bottom+5,window.innerHeight-180)+'px';
+  setTimeout(()=>document.addEventListener('click',function c(e){if(!m.contains(e.target)){m.remove();document.removeEventListener('click',c);}}),10);}
 
-// ============ MODALS ============
-function openModal(idx,action){
-  G_MI=idx;G_MA=action;
-  const t=document.getElementById('modal_title'),b=document.getElementById('modal_body');
+function openModal(idx,action){G_MI=idx;G_MA=action;const t=document.getElementById('modal_title'),b=document.getElementById('modal_body');
   switch(action){
-    case'upgradation':t.innerHTML='⬆ Upgradation';b.innerHTML=`<div class="modal-error" id="modal_error"></div><div class="modal-field"><label>Date</label><input type="date" id="upgrade_date"></div><div class="modal-field"><label>New Scale</label><select id="upgrade_scale"><option value="">-- Select --</option>${gASO()}</select></div>`;break;
-    case'advinc':t.innerHTML='🎓 Advance Inc';b.innerHTML=`<div class="modal-error" id="modal_error"></div><div class="modal-field"><label>Count (1-5)</label><select id="advinc_count"><option value="">-- Select --</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div><div class="modal-field"><label>Date</label><input type="date" id="advinc_date"></div>`;break;
-    case'promotion':t.innerHTML='⭐ Promotion';b.innerHTML=`<div class="modal-error" id="modal_error"></div><div class="modal-field"><label>New Scale</label><select id="prom_scale"><option value="">-- Select --</option>${gASO()}</select></div><div class="modal-field"><label>Option</label><select id="prom_option"><option value="">-- Select --</option><option value="avail">Avail</option><option value="notavail">Not Avail</option></select></div><div class="modal-field"><label>Date</label><input type="date" id="prom_date"></div>`;break;
-  }
-  document.getElementById('main_modal').classList.add('active');
-}
+    case'upgradation':t.innerHTML='⬆ Upgradation to Next Scale';b.innerHTML=`<div class="modal-error" id="modal_error"></div><div class="modal-field"><label>Upgradation Date</label><input type="date" id="upgrade_date"><div class="hint">Date when upgradation takes effect.</div></div><div class="modal-field"><label>Upgraded to Scale</label><select id="upgrade_scale"><option value="">-- Select New Scale --</option>${gASO()}</select><div class="hint">Same stage fixation in new scale. <b>No increment applied.</b></div></div>`;break;
+    case'advinc':t.innerHTML='🎓 Advance Increment (Higher Education)';b.innerHTML=`<div class="modal-error" id="modal_error"></div><div class="modal-field"><label>Number of Advance Increments</label><select id="advinc_count"><option value="">-- Select Count --</option><option value="1">1 Increment</option><option value="2">2 Increments</option><option value="3">3 Increments</option><option value="4">4 Increments</option><option value="5">5 Increments</option></select><div class="hint">Select 1 to 5 increments to be added in current scale.</div></div><div class="modal-field"><label>Effective Date</label><input type="date" id="advinc_date"><div class="hint">Date from which advance increments take effect.</div></div>`;break;
+    case'promotion':t.innerHTML='⭐ Promotion';b.innerHTML=`<div class="modal-error" id="modal_error"></div><div class="modal-field"><label>Promotion Scale (New Scale)</label><select id="prom_scale"><option value="">-- Select Promoted Scale --</option>${gASO()}</select><div class="hint">Select the scale to which the individual is promoted.</div></div><div class="modal-field"><label>Option / Benefit Availed</label><select id="prom_option"><option value="">-- Select Option --</option><option value="avail">Avail (Option Available)</option><option value="notavail">Not Avail (Option Not Available)</option></select><div class="hint"><b>Avail:</b> Next above stage + Annual Inc → Fixate total in new scale. Skip current year inc.<br><b>Not Avail:</b> Same stage fixation in new scale + Current year Inc.</div></div><div class="modal-field"><label>Date of Promotion</label><input type="date" id="prom_date"><div class="hint">Date on which promotion took effect.</div></div>`;break;}
+  document.getElementById('main_modal').classList.add('active');}
 function closeModal(){document.getElementById('main_modal').classList.remove('active');G_MA=null;G_MI=null;}
+function sME(m){const e=document.getElementById('modal_error');if(e){e.textContent='⚠ '+m;e.classList.add('show');}}
 function applyModalAction(){if(G_MA==='upgradation')aU();else if(G_MA==='advinc')aAI();else if(G_MA==='promotion')aP();}
 
-// ============ UPGRADATION ============
-function aU(){
-  const dS=document.getElementById('upgrade_date').value,s=document.getElementById('upgrade_scale').value;
-  if(!dS||!s){alert('Fill fields.');return;}
-  const d=pD(dS);if(!d||d<G_MD||d>G_RD){alert('Invalid date.');return;}
-  const pr=G_R[G_MI];if(!pr)return;
-  const cP=pr.pay,cS=pr.scale,cRY=pr.scaleRevYear,si=gSI(cS,cRY,cP),rY=gARY(s,d),nr=gSE(s,rY);
-  if(!nr)return;
-  const nP=nr.stages[Math.min(si,nr.stages.length-1)];
-  const nrO={id:'r'+Date.now(),eventLabel:`Upgradation to ${s}`,date:d,scale:s,scaleRevYear:rY,pay:nP,changeAmt:nP-cP,remark:`Same stage in ${s}`,type:'upgrade',isManual:true,skipNextInc:false};
-  const ip=G_MI+1,rB=G_R.slice(0,ip),rA=rP(s,rY,nP,d,false);
-  G_R=[...rB,nrO,...rA];
-  closeModal();renderTable(); // Card updates via renderTable()
-}
+function aU(){const dS=document.getElementById('upgrade_date').value,s=document.getElementById('upgrade_scale').value;if(!dS||!s){sME('Please fill all fields.');return;}const d=pD(dS);if(!d||d<G_MD||d>G_RD){sME('Invalid date.');return;}const pr=G_R[G_MI];if(!pr)return;const cP=pr.pay,cS=pr.scale,cRY=pr.scaleRevYear,si=gSI(cS,cRY,cP),rY=gARY(s,d),nr=gSE(s,rY);if(!nr)return;const nP=nr.stages[Math.min(si,nr.stages.length-1)],nrO={id:'r'+Date.now(),eventLabel:`Upgradation to Scale ${s} w.e.f. ${fD(d)}`,date:d,scale:s,scaleRevYear:rY,pay:nP,changeAmt:nP-cP,remark:`Same stage in ${s}`,type:'upgrade',isManual:true,skipNextInc:false};const ip=G_MI+1,rB=G_R.slice(0,ip),rA=rP(s,rY,nP,d,false);G_R=[...rB,nrO,...rA];closeModal();renderTable();}
+function aAI(){const c=parseInt(document.getElementById('advinc_count').value),dS=document.getElementById('advinc_date').value;if(!c||c<1||c>5||!dS){sME('Please fill all fields.');return;}const d=pD(dS);if(!d||d<G_MD||d>G_RD){sME('Invalid date.');return;}const pr=G_R[G_MI];if(!pr)return;const cP=pr.pay,cS=pr.scale,cRY=pr.scaleRevYear;if(iMS(cS,cRY,cP)){sME('Already at maximum stage.');return;}const nP=aMI(cS,cRY,cP,c),nrO={id:'r'+Date.now(),eventLabel:`Advance Increment (${c}x) w.e.f. ${fD(d)}`,date:d,scale:cS,scaleRevYear:cRY,pay:nP,changeAmt:nP-cP,remark:`${c} Advance Increment(s) for Higher Education`,type:'advinc',isManual:true,skipNextInc:false};const ip=G_MI+1,rB=G_R.slice(0,ip),rA=rP(cS,cRY,nP,d,false);G_R=[...rB,nrO,...rA];closeModal();renderTable();}
+function aP(){const s=document.getElementById('prom_scale').value,o=document.getElementById('prom_option').value,dS=document.getElementById('prom_date').value;if(!s||!o||!dS){sME('Please fill all fields.');return;}const d=pD(dS);if(!d||d<G_MD||d>G_RD){sME('Invalid date.');return;}const pr=G_R[G_MI];if(!pr)return;let cP=pr.pay,cS=pr.scale,cRY=pr.scaleRevYear;const pJN=jN(d);let pP=0,pR='',sk=false;if(o==='avail'){const s1=aI(cS,cRY,cP),s2=aI(cS,cRY,s1),total=s2,rY=gARY(s,d);pP=fNH(s,rY,total);cS=s;cRY=rY;sk=true;pR='Avail: Stage+Inc→Fixated';}else{const rY=gARY(s,d),nr=gSE(s,rY);if(!nr)return;const si=gSI(cS,cRY,cP),fixed=nr.stages[Math.min(si,nr.stages.length-1)];pP=aI(s,rY,fixed);cS=s;cRY=rY;pR='Not Avail: Fix+Inc';}const nrO={id:'r'+Date.now(),eventLabel:`Promotion to Scale ${s} w.e.f. ${fD(d)}`,date:d,scale:cS,scaleRevYear:cRY,pay:pP,changeAmt:pP-cP,remark:pR,type:'prom',isManual:true,skipNextInc:sk};const ip=G_MI+1,rB=G_R.slice(0,ip),rA=rP(cS,cRY,pP,d,sk);G_R=[...rB,nrO,...rA];closeModal();renderTable();}
+function rP(s,ry,sP,aD,skF){const res=[];let cP=sP,cS=s,cRY=ry,sk=skF;for(const ev of PAY_EVENTS){const ed=pD(ev.date);if(!ed||ed<=aD||ed>G_RD)continue;if(ev.type==='inc'){if(sk){sk=false;res.push({id:'r'+Date.now()+Math.random(),eventLabel:ev.label+' (Skip)',date:ed,scale:cS,scaleRevYear:cRY,pay:cP,changeAmt:0,remark:'Skip',type:'inc-skip'});continue;}if(iMS(cS,cRY,cP)){res.push({id:'r'+Date.now()+Math.random(),eventLabel:ev.label+' (Max)',date:ed,scale:cS,scaleRevYear:cRY,pay:cP,changeAmt:0,remark:'Max',type:'inc'});continue;}const pr=cP;cP=aI(cS,cRY,cP);res.push({id:'r'+Date.now()+Math.random(),eventLabel:ev.label,date:ed,scale:cS,scaleRevYear:cRY,pay:cP,changeAmt:cP-pr,remark:'Inc',type:'inc'});}else if(ev.type==='rev'){if(!gSE(cS,ev.scaleYear))continue;const pr=cP,oRY=cRY;cRY=ev.scaleYear;cP=fOR(cS,oRY,cRY,pr);res.push({id:'r'+Date.now()+Math.random(),eventLabel:ev.label,date:ed,scale:cS,scaleRevYear:cRY,pay:cP,changeAmt:cP-pr,remark:'Revision',type:'rev'});}}if(jN(G_RD)&&!iMS(cS,cRY,cP)){const pr=cP;cP=aI(cS,cRY,cP);res.push({id:'r'+Date.now()+Math.random(),eventLabel:'Pension Inc',date:G_RD,scale:cS,scaleRevYear:cRY,pay:cP,changeAmt:cP-pr,remark:'Pension',type:'pension'});}return res;}
 
-// ============ ADVANCE INCREMENT ============
-function aAI(){
-  const c=parseInt(document.getElementById('advinc_count').value),dS=document.getElementById('advinc_date').value;
-  if(!c||c<1||c>5||!dS){alert('Fill fields.');return;}
-  const d=pD(dS);if(!d||d<G_MD||d>G_RD){alert('Invalid date.');return;}
-  const pr=G_R[G_MI];if(!pr)return;
-  const cP=pr.pay,cS=pr.scale,cRY=pr.scaleRevYear;
-  if(iMS(cS,cRY,cP)){alert('Max stage.');return;}
-  const nP=aMI(cS,cRY,cP,c);
-  const nrO={id:'r'+Date.now(),eventLabel:`Adv Inc (${c}x)`,date:d,scale:cS,scaleRevYear:cRY,pay:nP,changeAmt:nP-cP,remark:`${c} Advance Inc(s)`,type:'advinc',isManual:true,skipNextInc:false};
-  const ip=G_MI+1,rB=G_R.slice(0,ip),rA=rP(cS,cRY,nP,d,false);
-  G_R=[...rB,nrO,...rA];
-  closeModal();renderTable(); // Card updates via renderTable()
-}
-
-// ============ PROMOTION ============
-function aP(){
-  const s=document.getElementById('prom_scale').value,o=document.getElementById('prom_option').value,dS=document.getElementById('prom_date').value;
-  if(!s||!o||!dS){alert('Fill fields.');return;}
-  const d=pD(dS);if(!d||d<G_MD||d>G_RD){alert('Invalid date.');return;}
-  const pr=G_R[G_MI];if(!pr)return;
-  let cP=pr.pay,cS=pr.scale,cRY=pr.scaleRevYear;
-  const pJN=jN(d);let pP=0,pR='',sk=false;
-  if(o==='avail'){
-    const s1=aI(cS,cRY,cP),s2=aI(cS,cRY,s1),total=s2,rY=gARY(s,d);
-    pP=fNH(s,rY,total);cS=s;cRY=rY;sk=true;pR='Avail: Stage+Inc→Fixated';
-  }else{
-    const rY=gARY(s,d),nr=gSE(s,rY);if(!nr)return;
-    const si=gSI(cS,cRY,cP),fixed=nr.stages[Math.min(si,nr.stages.length-1)];
-    pP=aI(s,rY,fixed);cS=s;cRY=rY;pR='Not Avail: Fix+Inc';
-  }
-  const nrO={id:'r'+Date.now(),eventLabel:`Promotion to ${s}`,date:d,scale:cS,scaleRevYear:cRY,pay:pP,changeAmt:pP-cP,remark:pR,type:'prom',isManual:true,skipNextInc:sk};
-  const ip=G_MI+1,rB=G_R.slice(0,ip),rA=rP(cS,cRY,pP,d,sk);
-  G_R=[...rB,nrO,...rA];
-  closeModal();renderTable(); // Card updates via renderTable()
-}
-
-// ============ REPROCESS AFTER EVENT ============
-function rP(s,ry,sP,aD,skF){
-  const res=[];let cP=sP,cS=s,cRY=ry,sk=skF;
-  for(const ev of PAY_EVENTS){const ed=pD(ev.date);if(!ed||ed<=aD||ed>G_RD)continue;
-    if(ev.type==='inc'){if(sk){sk=false;res.push({id:'r'+Date.now()+Math.random(),eventLabel:ev.label+' (Skip)',date:ed,scale:cS,scaleRevYear:cRY,pay:cP,changeAmt:0,remark:'Skip',type:'inc-skip'});continue;}
-      if(iMS(cS,cRY,cP)){res.push({id:'r'+Date.now()+Math.random(),eventLabel:ev.label+' (Max)',date:ed,scale:cS,scaleRevYear:cRY,pay:cP,changeAmt:0,remark:'Max',type:'inc'});continue;}
-      const pr=cP;cP=aI(cS,cRY,cP);res.push({id:'r'+Date.now()+Math.random(),eventLabel:ev.label,date:ed,scale:cS,scaleRevYear:cRY,pay:cP,changeAmt:cP-pr,remark:'Inc',type:'inc'});}
-    else if(ev.type==='rev'){if(!gSE(cS,ev.scaleYear))continue;const pr=cP,oRY=cRY;cRY=ev.scaleYear;cP=fOR(cS,oRY,cRY,pr);res.push({id:'r'+Date.now()+Math.random(),eventLabel:ev.label,date:ed,scale:cS,scaleRevYear:cRY,pay:cP,changeAmt:cP-pr,remark:'Revision',type:'rev'});}
-  }
-  if(jN(G_RD)&&!iMS(cS,cRY,cP)){const pr=cP;cP=aI(cS,cRY,cP);res.push({id:'r'+Date.now()+Math.random(),eventLabel:'Pension Inc',date:G_RD,scale:cS,scaleRevYear:cRY,pay:cP,changeAmt:cP-pr,remark:'Pension',type:'pension'});}
-  return res;
-}
-
-// ============ PRINT PREVIEW ============
+// Print Preview with dd/mm/yyyy format
 function openPrintPreview(){
   if(!G_R.length){alert('Calculate first.');return;}
   const en=document.getElementById('inp_enrol').value||'—',m=document.getElementById('inp_mustred').value||'—',r=document.getElementById('inp_retire').value||'—',s=document.getElementById('inp_scale').value||'—';
-  let tR='';
-  G_R.forEach((r,i)=>{r.sno=i+1;const sc=gSS(r.scale,r.scaleRevYear),ch=r.changeAmt>0?'+'+r.changeAmt.toLocaleString():(r.changeAmt<0?r.changeAmt.toLocaleString():'—');
-    tR+=`<tr style="background:${r.type==='mustered'?'#f0f0ff':r.type==='rev'?'#fff3f3':r.type==='pension'?'#f0f8ff':r.type==='prom'?'#fdf0ff':r.type==='upgrade'?'#fff8f0':r.type==='advinc'?'#f0fff4':'#fff'};"><td style="padding:6px;border:1px solid #999;">${r.sno}</td><td style="padding:6px;border:1px solid #999;">${r.eventLabel}</td><td style="padding:6px;border:1px solid #999;font-size:10px;">${r.scale}<br>(${sc})</td><td style="padding:6px;border:1px solid #999;font-weight:bold;">${r.pay.toLocaleString()}</td><td style="padding:6px;border:1px solid #999;color:${r.changeAmt>0?'#2e7d32':r.changeAmt<0?'#c62828':'#000'};">${ch}</td><td style="padding:6px;border:1px solid #999;font-size:10px;">${r.remark}</td></tr>`;
-  });
-  const lR=G_R[G_R.length-1];
+  let tR='';G_R.forEach((r,i)=>{r.sno=i+1;const sc=gSS(r.scale,r.scaleRevYear),ch=r.changeAmt>0?'+'+r.changeAmt.toLocaleString():(r.changeAmt<0?r.changeAmt.toLocaleString():'—');
+    const isHighlight=r.type==='mustered'||r.type==='rev'||r.type==='pension'||r.type==='prom'||r.type==='upgrade'||r.type==='advinc';
+    const bg=r.type==='mustered'?'#f0f0ff':r.type==='rev'?'#fff3f3':r.type==='pension'?'#f0f8ff':r.type==='prom'?'#fdf0ff':r.type==='upgrade'?'#fff8f0':r.type==='advinc'?'#f0fff4':'#fff';
+    const fw=isHighlight?'font-weight:bold;':'';
+    tR+=`<tr style="background:${bg};${fw}"><td style="padding:6px;border:1px solid #999;">${r.sno}</td><td style="padding:6px;border:1px solid #999;">${r.eventLabel}</td><td style="padding:6px;border:1px solid #999;font-size:10px;">${r.scale}<br>(${sc})</td><td style="padding:6px;border:1px solid #999;font-weight:bold;">${r.pay.toLocaleString()}</td><td style="padding:6px;border:1px solid #999;color:${r.changeAmt>0?'#2e7d32':r.changeAmt<0?'#c62828':'#000'};">${ch}</td><td style="padding:6px;border:1px solid #999;font-size:10px;">${r.remark}</td></tr>`;
+  });const lR=G_R[G_R.length-1];
   document.getElementById('print_preview_content').innerHTML=`
-    <div style="text-align:center;font-size:20px;font-weight:bold;padding:10px;">Pay Detail Summary</div>
-    <h3 style="text-align:center;">Individual Particulars</h3>
+    <div style="text-align:center;font-size:20px;font-weight:bold;padding:10px;border:2px solid #1a1a1a;margin-bottom:15px;">Pay Detail Summary</div>
+    <h3 style="text-align:center;margin-bottom:8px;">Individual Particulars</h3>
     <table style="width:100%;border-collapse:collapse;font-size:12px;margin-bottom:20px;border:2px solid #1a1a1a;">
-      <tr><td style="padding:8px;border:1px solid #999;font-weight:bold;background:#f5f5f5;">Enrolment</td><td style="padding:8px;border:1px solid #999;">${en}</td><td style="padding:8px;border:1px solid #999;font-weight:bold;background:#f5f5f5;">Mustered</td><td style="padding:8px;border:1px solid #999;">${m}</td></tr>
-      <tr><td style="padding:8px;border:1px solid #999;font-weight:bold;background:#f5f5f5;">Scale</td><td style="padding:8px;border:1px solid #999;">${s}</td><td style="padding:8px;border:1px solid #999;font-weight:bold;background:#f5f5f5;">Retirement</td><td style="padding:8px;border:1px solid #999;">${r}</td></tr>
+      <tr><td style="padding:8px;border:1px solid #999;font-weight:bold;background:#f5f5f5;width:200px;">Date of Enrolment</td><td style="padding:8px;border:1px solid #999;">${en}</td></tr>
+      <tr><td style="padding:8px;border:1px solid #999;font-weight:bold;background:#f5f5f5;">Date of Mustered (Pass Out)</td><td style="padding:8px;border:1px solid #999;">${m}</td></tr>
+      <tr><td style="padding:8px;border:1px solid #999;font-weight:bold;background:#f5f5f5;">Pay Scale</td><td style="padding:8px;border:1px solid #999;">${s}</td></tr>
+      <tr><td style="padding:8px;border:1px solid #999;font-weight:bold;background:#f5f5f5;">Date of Retirement</td><td style="padding:8px;border:1px solid #999;">${r}</td></tr>
     </table>
-    <h3 style="text-align:center;background:#1a1a1a;color:#fff;padding:10px;">Year-Wise Pay Details</h3>
+    <h3 style="text-align:center;background:#1a1a1a;color:#fff;padding:10px;margin:0;">Year-Wise Pay Details</h3>
     <table style="width:100%;border-collapse:collapse;font-size:11px;border:2px solid #1a1a1a;">
-      <thead><tr style="background:#1a1a1a;color:#fff;"><th style="padding:8px;border:1px solid #444;">S.No</th><th style="padding:8px;border:1px solid #444;">Pay Details</th><th style="padding:8px;border:1px solid #444;">Scale</th><th style="padding:8px;border:1px solid #444;">Basic Pay</th><th style="padding:8px;border:1px solid #444;">Change</th><th style="padding:8px;border:1px solid #444;">Remarks</th></tr></thead>
+      <thead><tr style="background:#1a1a1a;color:#fff;"><th style="padding:8px;border:1px solid #444;">S.No</th><th style="padding:8px;border:1px solid #444;">Pay Details</th><th style="padding:8px;border:1px solid #444;">Pay Scale</th><th style="padding:8px;border:1px solid #444;">Basic Pay (Rs)</th><th style="padding:8px;border:1px solid #444;">Change (Rs)</th><th style="padding:8px;border:1px solid #444;">Remarks</th></tr></thead>
       <tbody>${tR}</tbody>
     </table>
-    <div style="font-weight:bold;padding:12px;border:2px solid #1a1a1a;border-top:none;margin-bottom:16px;">Final: Rs. ${lR.pay.toLocaleString()} | ${lR.scale}</div>`;
-  document.getElementById('print_preview_overlay').classList.add('active');
-}
+    <div style="font-weight:bold;padding:12px;border:2px solid #1a1a1a;border-top:none;">Final Basic Pay at Retirement: Rs. ${lR.pay.toLocaleString()} | Scale: ${lR.scale}</div>`;
+  document.getElementById('print_preview_overlay').classList.add('active');}
 function closePrintPreview(){document.getElementById('print_preview_overlay').classList.remove('active');}
-function printDocument(){const c=document.getElementById('print_preview_content').innerHTML;const pw=window.open('','_blank','width=900,height=700');if(!pw)return;pw.document.write(`<!DOCTYPE html><html><head><meta charset="UTF-8"><style>body{font-family:sans-serif;padding:20px;}@page{size:letter;margin:15mm;}</style></head><body>${c}</body></html>`);pw.document.close();setTimeout(()=>pw.print(),500);}
+function printDocument(){const c=document.getElementById('print_preview_content').innerHTML;const pw=window.open('','_blank','width=900,height=700');if(!pw)return;pw.document.write(`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Pay Detail</title><style>body{font-family:sans-serif;padding:20px;}@page{size:letter;margin:12mm;}</style></head><body>${c}</body></html>`);pw.document.close();setTimeout(()=>pw.print(),500);}
 function saveAsPDF(){printDocument();}
 function showErr(m){const e=document.getElementById('error_area');e.textContent=m;e.classList.remove('hidden');}
 
 // Event listeners
 document.getElementById('main_modal').addEventListener('click',function(e){if(e.target===this)closeModal();});
+document.getElementById('confirm_modal').addEventListener('click',function(e){if(e.target===this)closeConfirmModal();});
 document.getElementById('print_preview_overlay').addEventListener('click',function(e){if(e.target===this)closePrintPreview();});
-document.addEventListener('keydown',function(e){if(e.key==='Escape'){document.getElementById('action_menu')?.remove();closeModal();closePrintPreview();document.getElementById('view_modal')?.classList.remove('active');}});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){document.getElementById('action_menu')?.remove();closeModal();closeConfirmModal();closePrintPreview();document.getElementById('view_modal')?.classList.remove('active');}});
 </script>
 </body>
 </html>
