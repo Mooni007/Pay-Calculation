@@ -3,120 +3,390 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pay Detail Summary</title>
+<title>Pay Detail Summary - Pay Verification System</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Segoe UI',Arial,Helvetica,sans-serif;font-size:14px;background:#f5f5f5;color:#1a1a1a;min-height:100vh;}
-.page{max-width:1100px;margin:30px auto;background:#fff;padding:40px 50px;box-shadow:0 2px 10px rgba(0,0,0,.08);border-radius:4px;}
-.main-heading{text-align:center;margin-bottom:8px;}
-.main-heading h1{font-size:22px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:#1a1a1a;margin:0;padding:0;}
-.main-heading .subtitle{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:3px;color:#555;margin-top:4px;}
-.section-title{text-align:center;font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#1a1a1a;margin:30px 0 20px 0;padding-bottom:10px;border-bottom:2px solid #1a1a1a;}
-.particulars-form{max-width:650px;margin:0 auto;}
-.form-row{display:flex;align-items:center;margin-bottom:16px;border:1px solid #d5d5d5;border-radius:4px;overflow:hidden;background:#fff;}
-.form-row .form-label{width:250px;min-width:200px;padding:12px 16px;font-weight:600;font-size:13px;color:#333;background:#f8f8f8;border-right:1px solid #e0e0e0;letter-spacing:.3px;}
-.form-row input,.form-row select{flex:1;border:none;outline:none;padding:12px 16px;font-size:13px;font-family:inherit;color:#333;background:#fff;width:100%;}
-.form-row input:focus,.form-row select:focus{background:#fafafa;}
-.form-row select{cursor:pointer;appearance:none;-webkit-appearance:none;-moz-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23555' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'%3E%3C/path%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;}
-.form-row input[type="date"]{color:#333;font-family:inherit;}
-.form-row input[type="date"]::-webkit-calendar-picker-indicator{cursor:pointer;filter:invert(0.4);}
-.btn-row{text-align:center;margin:25px 0;}
-.btn{display:inline-block;border:none;border-radius:4px;padding:14px 50px;font-size:14px;font-weight:700;cursor:pointer;text-transform:uppercase;letter-spacing:1px;transition:all 0.2s;font-family:inherit;background:#1a1a1a;color:#fff;}
-.btn:hover{background:#333;box-shadow:0 2px 8px rgba(0,0,0,.2);}
-.btn-secondary{display:inline-block;border:none;border-radius:4px;padding:10px 24px;font-size:13px;font-weight:600;cursor:pointer;letter-spacing:.5px;transition:all 0.2s;font-family:inherit;margin:0 5px;}
-.btn-print{background:#1a1a1a;color:#fff;}.btn-print:hover{background:#333;}
-.btn-recalc{background:#fff;color:#1a1a1a;border:2px solid #1a1a1a;}.btn-recalc:hover{background:#f5f5f5;}
-.result-cards{max-width:450px;margin:0 auto 25px auto;}
-.final-pay-card{background:#fff;border:2px solid #1a1a1a;border-radius:4px;padding:16px 20px;text-align:center;}
-.final-pay-card .card-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#555;margin-bottom:6px;}
-.final-pay-card .card-amount{font-size:28px;font-weight:700;color:#1a1a1a;}
-.final-pay-card .card-detail{font-size:11px;color:#777;margin-top:6px;}
+body{
+  font-family:'Segoe UI',Arial,Helvetica,sans-serif;
+  background:linear-gradient(135deg,#0a1f0a 0%,#0d2b0d 30%,#0f3310 60%,#0a1f0a 100%);
+  color:#e0e0e0;min-height:100vh;
+  -webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;
+  display:flex;align-items:center;justify-content:center;
+  padding:clamp(10px,2vw,20px);
+}
+body::before{
+  content:'';position:fixed;top:0;left:0;width:100%;height:100%;
+  background:radial-gradient(ellipse at 50% 0%,rgba(34,139,34,0.08) 0%,transparent 70%);
+  pointer-events:none;z-index:0;
+}
+.page{
+  width:100%;max-width:1140px;margin:0 auto;
+  background:linear-gradient(180deg,#122615 0%,#0e1f10 100%);
+  padding:clamp(18px,3vw,40px) clamp(15px,4vw,50px);
+  box-shadow:0 8px 32px rgba(0,0,0,.5),0 2px 8px rgba(34,139,34,.15);
+  border-radius:8px;position:relative;z-index:1;
+  border:1px solid rgba(34,139,34,.2);
+}
+
+/* ===== TOP HEADING SECTION ===== */
+.main-heading{text-align:center;margin-bottom:8px;padding-bottom:16px;border-bottom:2px solid rgba(34,139,34,.3);}
+.main-heading h1{
+  font-family:'Arial Black','Arial Bold',Arial,sans-serif;
+  font-size:clamp(18px,4.5vw,30px);font-weight:900;text-transform:uppercase;
+  letter-spacing:2px;color:#ffffff;margin:0;padding:0;
+  text-shadow:0 2px 8px rgba(0,0,0,.5);
+}
+.main-heading .subtitle{
+  font-size:clamp(9px,1.5vw,12px);font-weight:600;text-transform:uppercase;
+  letter-spacing:3px;color:#90c090;margin-top:6px;
+}
+
+/* ===== SECTION TITLE ===== */
+.section-title{
+  text-align:center;font-size:clamp(11px,2vw,15px);font-weight:700;
+  text-transform:uppercase;letter-spacing:1px;
+  color:#c0e0c0;margin:clamp(16px,2.5vw,30px) 0 clamp(12px,1.5vw,20px) 0;
+  padding-bottom:10px;border-bottom:1px solid rgba(34,139,34,.25);
+}
+
+/* ===== PARTICULARS FORM ===== */
+.particulars-form{max-width:620px;margin:0 auto;width:100%;}
+.form-row{
+  display:flex;align-items:stretch;margin-bottom:clamp(10px,1.3vw,16px);
+  border-radius:30px;overflow:hidden;
+  box-shadow:0 2px 10px rgba(0,0,0,.15);
+  transition:all 0.3s ease;
+  min-height:clamp(42px,5.5vw,50px);
+}
+.form-row:hover{box-shadow:0 4px 18px rgba(0,0,0,.25);}
+.form-row:focus-within{
+  box-shadow:0 4px 22px rgba(255,215,0,.2),0 0 0 2px rgba(255,215,0,.3);
+}
+.form-row .form-label{
+  width:clamp(150px,26vw,240px);min-width:130px;
+  padding:clamp(8px,1.2vw,14px) clamp(10px,1.5vw,18px);
+  font-weight:700;font-size:clamp(10px,1.3vw,13px);color:#ffffff;
+  background:linear-gradient(180deg,#1a3a1a 0%,#153015 100%);
+  border-right:1px solid rgba(34,139,34,.3);
+  letter-spacing:.5px;display:flex;align-items:center;white-space:nowrap;
+}
+.form-row input,.form-row select{
+  flex:1;border:none;outline:none;
+  padding:clamp(8px,1.2vw,14px) clamp(12px,1.8vw,20px);
+  font-size:clamp(12px,1.4vw,15px);font-family:inherit;color:#1a1a1a;
+  background:#ffffff;width:100%;min-width:0;
+  transition:all 0.2s ease;font-weight:500;
+}
+.form-row input::placeholder,.form-row select::placeholder{color:#999;font-weight:400;font-size:clamp(11px,1.2vw,14px);}
+.form-row input:focus,.form-row select:focus{background:#fffef5;}
+.form-row input[type="date"]{cursor:pointer;color:#1a1a1a;}
+.form-row input[type="date"]::-webkit-calendar-picker-indicator{cursor:pointer;opacity:0.7;transition:opacity 0.2s;}
+.form-row input[type="date"]::-webkit-calendar-picker-indicator:hover{opacity:1;}
+.form-row select{
+  cursor:pointer;appearance:none;-webkit-appearance:none;-moz-appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23555' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right clamp(10px,1.8vw,16px) center;
+  padding-right:clamp(32px,4.5vw,44px);color:#1a1a1a;background-color:#ffffff;
+}
+.form-row select option{background:#ffffff;color:#1a1a1a;padding:12px;font-size:clamp(11px,1.2vw,14px);}
+.form-row select option:hover,.form-row select option:checked{background:#fffef0;color:#1a1a1a;}
+
+/* ===== GOLDEN BUTTONS ===== */
+.btn-row{text-align:center;margin:clamp(16px,2.5vw,28px) 0;display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(8px,1vw,12px);}
+.btn{
+  display:inline-block;border:none;border-radius:30px;
+  padding:clamp(10px,1.6vw,15px) clamp(30px,5vw,52px);
+  font-size:clamp(11px,1.3vw,14px);font-weight:800;
+  cursor:pointer;text-transform:uppercase;letter-spacing:1.5px;
+  transition:all 0.3s ease;font-family:inherit;
+  background:linear-gradient(180deg,#FFD700 0%,#DAA520 40%,#B8860B 100%);
+  color:#3e2700;
+  box-shadow:0 4px 20px rgba(255,215,0,.35),0 2px 4px rgba(0,0,0,.3);
+  border:2px solid #FFD700;
+  text-shadow:0 1px 0 rgba(255,255,255,.2);
+}
+.btn:hover{
+  background:linear-gradient(180deg,#FFE44D 0%,#FFD700 40%,#DAA520 100%);
+  box-shadow:0 8px 30px rgba(255,215,0,.55),0 4px 8px rgba(0,0,0,.4);
+  transform:translateY(-2px);color:#2a1a00;
+  border-color:#FFE44D;
+}
+.btn:active{transform:translateY(0);box-shadow:0 2px 10px rgba(255,215,0,.3);}
+.btn-secondary{
+  display:inline-block;border-radius:25px;
+  padding:clamp(8px,1.1vw,11px) clamp(16px,2.5vw,26px);
+  font-size:clamp(9px,1vw,12px);font-weight:700;
+  cursor:pointer;letter-spacing:.5px;
+  transition:all 0.3s ease;font-family:inherit;
+}
+.btn-print{
+  background:linear-gradient(180deg,#FFD700 0%,#DAA520 40%,#B8860B 100%);
+  color:#3e2700;border:2px solid #FFD700;
+  box-shadow:0 3px 14px rgba(255,215,0,.25);
+  text-shadow:0 1px 0 rgba(255,255,255,.15);
+  font-weight:700;
+}
+.btn-print:hover{
+  background:linear-gradient(180deg,#FFE44D 0%,#FFD700 40%,#DAA520 100%);
+  box-shadow:0 6px 22px rgba(255,215,0,.45);
+  transform:translateY(-1px);color:#2a1a00;
+}
+.btn-recalc{
+  background:linear-gradient(180deg,#FFD700 0%,#DAA520 40%,#B8860B 100%);
+  color:#3e2700;border:2px solid #FFD700;
+  box-shadow:0 3px 14px rgba(255,215,0,.25);
+  text-shadow:0 1px 0 rgba(255,255,255,.15);
+  font-weight:700;
+}
+.btn-recalc:hover{
+  background:linear-gradient(180deg,#FFE44D 0%,#FFD700 40%,#DAA520 100%);
+  box-shadow:0 6px 22px rgba(255,215,0,.45);
+  transform:translateY(-1px);color:#2a1a00;
+}
+
+/* ===== RESULT CARDS ===== */
+.result-cards{max-width:480px;margin:0 auto 25px auto;}
+.final-pay-card{
+  background:rgba(0,0,0,.25);border:2px solid #ffffff;
+  border-radius:12px;padding:clamp(12px,1.8vw,18px) clamp(14px,2.5vw,22px);
+  text-align:center;box-shadow:0 4px 16px rgba(255,255,255,.06);
+}
+.final-pay-card .card-label{
+  font-size:clamp(9px,1.1vw,12px);font-weight:700;text-transform:uppercase;
+  letter-spacing:1px;color:#c0d0c0;margin-bottom:6px;
+}
+.final-pay-card .card-amount{font-size:clamp(22px,3.2vw,30px);font-weight:700;color:#ffffff;}
+.final-pay-card .card-detail{font-size:clamp(8px,0.9vw,11px);color:#90a090;margin-top:6px;}
+
+/* ===== WHITE TABLE WITH BLACK BORDERS ===== */
 .table-section{margin-top:10px;}
-.table-section .table-title{background:#1a1a1a;color:#fff;padding:14px 20px;font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:1px;text-align:center;border-radius:4px 4px 0 0;}
-.table-container{width:100%;overflow-x:auto;}
-table.pay-table{width:100%;border-collapse:collapse;font-size:12px;min-width:750px;border:2px solid #1a1a1a;}
-table.pay-table thead th{background:#1a1a1a;color:#fff;padding:10px 8px;text-align:center;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;border:1px solid #444;}
-table.pay-table tbody td{padding:8px;border:1px solid #ccc;text-align:center;vertical-align:middle;color:#555;font-size:12px;}
-table.pay-table tbody tr.row-rev td{background:#fff3f3!important;font-weight:700!important;color:#c62828;}
-table.pay-table tbody tr.row-mustered td{background:#f0f0ff!important;font-weight:700!important;color:#1a237e;}
-table.pay-table tbody tr.row-pension td{background:#f0f8ff!important;font-weight:700!important;color:#0277bd;}
-table.pay-table tbody tr.row-prom td{background:#fdf0ff!important;font-weight:700!important;color:#6a1b9a;}
-table.pay-table tbody tr.row-upgrade td{background:#fff8f0!important;font-weight:700!important;color:#e65100;}
-table.pay-table tbody tr.row-advinc td{background:#f0fff4!important;font-weight:700!important;color:#2e7d32;}
-table.pay-table tbody tr.row-inc td{background:#fff;font-weight:400;color:#555;}
-table.pay-table tbody tr.row-inc td.td-event{text-align:left;}
-.td-sno{font-weight:700;color:#777;width:36px;}
-.td-pay{font-weight:700;color:#1a1a1a;white-space:nowrap;}
+.table-section .table-title{
+  background:#ffffff;color:#1a1a1a;padding:clamp(10px,1.2vw,14px) 20px;
+  font-size:clamp(11px,1.4vw,14px);font-weight:700;
+  text-transform:uppercase;letter-spacing:1px;text-align:center;
+  border-radius:8px 8px 0 0;border:2px solid #000000;border-bottom:none;
+  font-family:'Arial Black','Arial Bold',Arial,sans-serif;
+}
+.table-container{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+table.pay-table{
+  width:100%;border-collapse:collapse;font-size:clamp(9px,1vw,12px);
+  min-width:700px;
+}
+table.pay-table thead th{
+  background:#f0f0f0;color:#000000;padding:clamp(6px,0.8vw,10px) clamp(4px,0.6vw,8px);
+  text-align:center;font-size:clamp(8px,0.8vw,10px);font-weight:700;
+  text-transform:uppercase;letter-spacing:.6px;
+  border:1px solid #000000;
+}
+table.pay-table tbody td{
+  padding:clamp(5px,0.7vw,8px) clamp(4px,0.5vw,6px);text-align:center;vertical-align:middle;
+  font-size:clamp(9px,1vw,12px);
+  background:#ffffff;color:#1a1a1a;border:1px solid #cccccc;
+}
+table.pay-table tbody tr.row-rev td{font-weight:700!important;background:#fff5f5!important;color:#c62828!important;border:1px solid #cccccc;}
+table.pay-table tbody tr.row-mustered td{font-weight:700!important;background:#f0f4ff!important;color:#1a237e!important;border:1px solid #cccccc;}
+table.pay-table tbody tr.row-pension td{font-weight:700!important;background:#f0f8ff!important;color:#0277bd!important;border:1px solid #cccccc;}
+table.pay-table tbody tr.row-prom td{font-weight:700!important;background:#fef0ff!important;color:#6a1b9a!important;border:1px solid #cccccc;}
+table.pay-table tbody tr.row-upgrade td{font-weight:700!important;background:#fffaf0!important;color:#e65100!important;border:1px solid #cccccc;}
+table.pay-table tbody tr.row-advinc td{font-weight:700!important;background:#f0fff4!important;color:#2e7d32!important;border:1px solid #cccccc;}
+table.pay-table tbody tr.row-inc td{font-weight:400!important;background:#ffffff!important;color:#333333!important;border:1px solid #cccccc;}
+table.pay-table tbody tr.row-inc-skip td{font-weight:400!important;background:#fafafa!important;color:#666666!important;border:1px solid #cccccc;}
+table.pay-table tbody tr:hover td{background:#fffef5!important;}
+
+.td-sno{font-weight:700;color:#555;width:clamp(28px,3vw,36px);}
+.td-pay{font-weight:700;color:#000000;white-space:nowrap;}
 .td-event{text-align:left!important;}
-.td-chg{white-space:nowrap;}.td-chg.pos{color:#2e7d32;}.td-chg.neg{color:#c62828;}
-.td-scale{font-size:10px;}.td-remark{font-size:10px;text-align:left!important;}
-.td-actions{white-space:nowrap;width:95px;}
-.action-btn{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;border:1px solid #ccc;cursor:pointer;font-size:13px;transition:all 0.2s;margin:0 2px;background:#fff;color:#555;}
-.action-btn.add-btn:hover{background:#1a1a1a;color:#fff;border-color:#1a1a1a;}
-.action-btn.delete-btn:hover{background:#c62828;color:#fff;border-color:#c62828;}
-.action-btn.view-btn:hover{background:#2e7d32;color:#fff;border-color:#2e7d32;}
-.pay-summary-footer{background:#f9f9f9;border:2px solid #1a1a1a;border-top:none;padding:14px 20px;font-size:13px;text-align:center;}
-.error-msg{color:#c62828;font-weight:700;text-align:center;padding:18px;font-size:14px;background:#fff5f5;border:1px solid #ffcdd2;margin:15px 0;border-radius:4px;}
+.td-chg{white-space:nowrap;}.td-chg.pos{color:#2e7d32;font-weight:700;}.td-chg.neg{color:#c62828;font-weight:700;}
+.td-scale{font-size:clamp(7px,0.7vw,10px);}.td-remark{font-size:clamp(7px,0.7vw,10px);text-align:left!important;}
+
+/* ===== ACTION BUTTONS ===== */
+.td-actions{white-space:nowrap;width:clamp(80px,8vw,95px);}
+.action-btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:clamp(22px,2.8vw,28px);height:clamp(22px,2.8vw,28px);border-radius:50%;
+  border:1px solid #ccc;cursor:pointer;font-size:clamp(10px,1.1vw,13px);
+  transition:all 0.2s;margin:0 1px;background:#fff;color:#555;
+}
+.action-btn.add-btn:hover{background:#FFD700;color:#3e2700;border-color:#DAA520;box-shadow:0 0 10px rgba(255,215,0,.5);}
+.action-btn.delete-btn:hover{background:#e04040;color:#fff;border-color:#e04040;box-shadow:0 0 10px rgba(224,64,64,.4);}
+.action-btn.view-btn:hover{background:#FFD700;color:#3e2700;border-color:#DAA520;box-shadow:0 0 10px rgba(255,215,0,.5);}
+
+/* ===== SUMMARY FOOTER ===== */
+.pay-summary-footer{
+  background:#f8f8f8;border:2px solid #000000;border-top:none;
+  padding:clamp(10px,1vw,14px) 20px;font-size:clamp(10px,1.1vw,13px);text-align:center;
+  color:#1a1a1a;border-radius:0 0 8px 8px;
+}
+
+/* ===== ERROR ===== */
+.error-msg{
+  color:#ff9090;font-weight:700;text-align:center;padding:14px;
+  font-size:clamp(10px,1.1vw,13px);background:rgba(180,40,40,.15);
+  border:1px solid rgba(255,144,144,.3);margin:15px 0;border-radius:20px;
+}
 .hidden{display:none!important;}
 
 /* ===== MODALS ===== */
-.modal-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.55);z-index:10000;align-items:center;justify-content:center;padding:20px;}
+.modal-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.7);z-index:10000;align-items:center;justify-content:center;padding:20px;}
 .modal-overlay.active{display:flex;}
-.modal-box{background:#fff;border-radius:10px;width:520px;max-width:95vw;max-height:90vh;box-shadow:0 20px 60px rgba(0,0,0,.35);overflow:hidden;display:flex;flex-direction:column;animation:modalIn 0.3s cubic-bezier(0.16,1,0.3,1);}
+.modal-box{
+  background:linear-gradient(180deg,#1a2e1a 0%,#142214 100%);
+  border-radius:12px;width:min(540px,95vw);max-width:95vw;max-height:90vh;
+  box-shadow:0 20px 60px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.15);
+  overflow:hidden;display:flex;flex-direction:column;
+  animation:modalIn 0.3s cubic-bezier(0.16,1,0.3,1);
+}
 @keyframes modalIn{from{transform:scale(.9) translateY(20px);opacity:0;}to{transform:scale(1) translateY(0);opacity:1;}}
-.modal-header{background:#1a1a1a;color:#fff;padding:16px 22px;font-size:15px;font-weight:700;letter-spacing:.5px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #333;flex-shrink:0;}
-.modal-header .modal-close{background:rgba(255,255,255,.12);border:none;color:#fff;width:32px;height:32px;border-radius:50%;font-size:16px;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;justify-content:center;}
-.modal-header .modal-close:hover{background:rgba(255,255,255,.25);transform:rotate(90deg);}
-.modal-body{padding:22px 24px;overflow-y:auto;flex:1;background:#fafafa;}
-.modal-body .modal-error{background:#fff5f5;border:1px solid #ffcdd2;border-radius:4px;color:#c62828;padding:10px 14px;font-size:12px;margin-bottom:14px;display:none;}
+.modal-header{
+  background:linear-gradient(180deg,#1f3d1f 0%,#183018 100%);
+  color:#ffffff;padding:14px 20px;font-size:14px;font-weight:700;
+  letter-spacing:.5px;display:flex;align-items:center;
+  justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.15);flex-shrink:0;
+}
+.modal-header .modal-close{
+  background:rgba(255,255,255,.08);border:none;color:#c0e0c0;
+  width:30px;height:30px;border-radius:50%;font-size:15px;
+  cursor:pointer;transition:all 0.2s;
+  display:flex;align-items:center;justify-content:center;
+}
+.modal-header .modal-close:hover{background:rgba(255,255,255,.18);transform:rotate(90deg);}
+.modal-body{padding:20px 22px;overflow-y:auto;flex:1;background:rgba(0,0,0,.15);}
+.modal-body .modal-error{
+  background:rgba(200,40,40,.15);border:1px solid rgba(255,144,144,.3);
+  border-radius:8px;color:#ff9090;padding:10px 14px;font-size:11px;margin-bottom:14px;display:none;
+}
 .modal-body .modal-error.show{display:block;}
-.modal-field{margin-bottom:16px;}
-.modal-field label{display:block;font-weight:700;color:#1a1a1a;margin-bottom:6px;font-size:12px;text-transform:uppercase;letter-spacing:.5px;}
-.modal-field input,.modal-field select{width:100%;border:2px solid #e0e0e0;border-radius:6px;padding:11px 14px;font-size:13px;font-family:inherit;color:#333;outline:none;background:#fff;transition:border 0.2s;}
-.modal-field input:focus,.modal-field select:focus{border-color:#1a1a1a;box-shadow:0 0 0 3px rgba(0,0,0,.06);background:#fff;}
+.modal-field{margin-bottom:14px;}
+.modal-field label{
+  display:block;font-weight:700;color:#d0e0d0;margin-bottom:6px;
+  font-size:11px;text-transform:uppercase;letter-spacing:.5px;
+}
+.modal-field input,.modal-field select{
+  width:100%;border:1px solid #ddd;border-radius:25px;
+  padding:10px 14px;font-size:12px;font-family:inherit;color:#1a1a1a;
+  outline:none;background:#ffffff;transition:border 0.2s;
+}
+.modal-field input:focus,.modal-field select:focus{
+  border-color:#FFD700;box-shadow:0 0 0 3px rgba(255,215,0,.15);
+}
+.modal-field input[type="date"]{cursor:pointer;}
 .modal-field input[type="date"]::-webkit-calendar-picker-indicator{cursor:pointer;}
-.modal-field .hint{font-size:11px;color:#888;margin-top:5px;line-height:1.4;}
-.modal-field .hint b{color:#555;}
-.modal-footer{padding:14px 24px;display:flex;gap:10px;justify-content:flex-end;border-top:1px solid #e0e0e0;background:#fff;flex-shrink:0;}
-.btn-modal-ok{background:#1a1a1a;color:#fff;border:none;border-radius:6px;padding:10px 30px;font-size:13px;font-weight:700;cursor:pointer;text-transform:uppercase;letter-spacing:.5px;transition:all 0.2s;}
-.btn-modal-ok:hover{background:#333;box-shadow:0 4px 12px rgba(0,0,0,.2);transform:translateY(-1px);}
-.btn-modal-cancel{background:#fff;color:#555;border:2px solid #ddd;border-radius:6px;padding:10px 24px;font-size:13px;cursor:pointer;font-weight:600;transition:all 0.2s;}
-.btn-modal-cancel:hover{background:#f5f5f5;border-color:#bbb;}
-.btn-modal-delete{background:#c62828;color:#fff;border:none;border-radius:6px;padding:10px 30px;font-size:13px;font-weight:700;cursor:pointer;text-transform:uppercase;letter-spacing:.5px;transition:all 0.2s;}
-.btn-modal-delete:hover{background:#b71c1c;}
-.confirm-icon{width:60px;height:60px;border-radius:50%;margin:0 auto 16px auto;display:flex;align-items:center;justify-content:center;font-size:28px;}
-.confirm-icon.warning{background:#fff3e0;color:#e65100;}
-.confirm-message{text-align:center;font-size:14px;color:#333;margin-bottom:6px;font-weight:600;line-height:1.5;}
-.confirm-detail{text-align:center;font-size:12px;color:#888;margin-bottom:4px;}
+.modal-field select{
+  cursor:pointer;appearance:none;-webkit-appearance:none;-moz-appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23555' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 12px center;padding-right:32px;
+}
+.modal-field select option{background:#fff;color:#1a1a1a;}
+.modal-field .hint{font-size:10px;color:#80a080;margin-top:5px;line-height:1.4;}
+.modal-field .hint b{color:#a0c0a0;}
+.modal-footer{padding:12px 22px;display:flex;gap:8px;justify-content:flex-end;border-top:1px solid rgba(255,255,255,.1);background:rgba(0,0,0,.2);flex-shrink:0;}
+.btn-modal-ok{
+  background:linear-gradient(180deg,#FFD700 0%,#DAA520 40%,#B8860B 100%);
+  color:#3e2700;border:none;border-radius:25px;
+  padding:9px 26px;font-size:12px;font-weight:800;
+  cursor:pointer;text-transform:uppercase;letter-spacing:.5px;
+  transition:all 0.3s ease;
+  box-shadow:0 4px 16px rgba(255,215,0,.3);
+  text-shadow:0 1px 0 rgba(255,255,255,.2);
+}
+.btn-modal-ok:hover{
+  background:linear-gradient(180deg,#FFE44D 0%,#FFD700 40%,#DAA520 100%);
+  box-shadow:0 6px 24px rgba(255,215,0,.5);
+  transform:translateY(-1px);color:#2a1a00;
+}
+.btn-modal-cancel{background:transparent;color:#c0e0c0;border:1px solid rgba(255,255,255,.2);border-radius:25px;padding:9px 22px;font-size:12px;cursor:pointer;font-weight:600;transition:all 0.2s;}
+.btn-modal-cancel:hover{background:rgba(255,255,255,.05);}
+.btn-modal-delete{background:#c0392b;color:#fff;border:none;border-radius:25px;padding:9px 26px;font-size:12px;font-weight:700;cursor:pointer;text-transform:uppercase;letter-spacing:.5px;transition:all 0.2s;}
+.btn-modal-delete:hover{background:#e04040;}
+.confirm-icon{width:55px;height:55px;border-radius:50%;margin:0 auto 14px auto;display:flex;align-items:center;justify-content:center;font-size:26px;}
+.confirm-icon.warning{background:rgba(200,100,30,.2);color:#ffb080;}
+.confirm-message{text-align:center;font-size:13px;color:#e0e0e0;margin-bottom:6px;font-weight:600;line-height:1.5;}
+.confirm-detail{text-align:center;font-size:11px;color:#90a090;margin-bottom:4px;}
 .detail-list{padding:0;}
-.detail-item{display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid #eee;}
+.detail-item{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.06);}
 .detail-item:last-child{border-bottom:none;}
-.detail-key{font-weight:700;color:#555;font-size:11px;text-transform:uppercase;letter-spacing:.5px;min-width:110px;}
-.detail-val{font-weight:600;color:#1a1a1a;font-size:14px;text-align:right;}
-.print-preview-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.6);z-index:20000;align-items:center;justify-content:center;padding:20px;}
+.detail-key{font-weight:700;color:#90c090;font-size:10px;text-transform:uppercase;letter-spacing:.5px;min-width:100px;}
+.detail-val{font-weight:600;color:#e0e0e0;font-size:13px;text-align:right;}
+.print-preview-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.8);z-index:20000;align-items:center;justify-content:center;padding:20px;}
 .print-preview-overlay.active{display:flex;}
-.print-preview-container{background:#fff;border-radius:10px;width:95vw;max-width:950px;max-height:90vh;box-shadow:0 20px 60px rgba(0,0,0,.35);display:flex;flex-direction:column;overflow:hidden;}
-.print-content{flex:1;overflow-y:auto;padding:24px;}
-.action-menu{position:fixed;background:#fff;border:2px solid #1a1a1a;border-radius:8px;padding:6px 0;z-index:15000;min-width:270px;box-shadow:0 10px 35px rgba(0,0,0,.22);font-size:13px;}
-.action-menu-item{padding:11px 18px;cursor:pointer;transition:all 0.15s;white-space:nowrap;display:flex;align-items:center;gap:10px;font-weight:500;}
-.action-menu-item:hover{background:#f5f5f5;padding-left:22px;}
+.print-preview-container{
+  background:#fff;border-radius:12px;width:min(950px,95vw);max-height:90vh;
+  box-shadow:0 20px 60px rgba(0,0,0,.5);
+  display:flex;flex-direction:column;overflow:hidden;
+}
+.print-content{flex:1;overflow-y:auto;padding:clamp(16px,3vw,24px);color:#1a1a1a;background:#fff;}
+.action-menu{
+  position:fixed;background:#1f3d1f;border:1px solid rgba(255,255,255,.2);
+  border-radius:12px;padding:6px 0;z-index:15000;min-width:240px;
+  box-shadow:0 10px 35px rgba(0,0,0,.5);font-size:12px;
+}
+.action-menu-item{
+  padding:10px 16px;cursor:pointer;transition:all 0.15s;
+  white-space:nowrap;display:flex;align-items:center;gap:8px;
+  font-weight:500;color:#c0e0c0;
+}
+.action-menu-item:hover{background:rgba(255,215,0,.12);padding-left:20px;color:#FFD700;}
 
-/* ===== RESPONSIVE ===== */
-@media(max-width:768px){.page{margin:10px;padding:20px 15px;}.form-row{flex-direction:column;}.form-row .form-label{width:100%;border-right:none;border-bottom:1px solid #e0e0e0;padding:10px 14px;min-width:auto;}.form-row input,.form-row select{padding:12px 14px;}.btn{padding:14px 40px;width:100%;}.btn-secondary{padding:10px 18px;font-size:12px;}table.pay-table{min-width:600px;font-size:11px;}.modal-box{width:98vw;}}
-@media(max-width:480px){.page{padding:15px 10px;}.main-heading h1{font-size:17px;}.section-title{font-size:13px;}table.pay-table{min-width:500px;font-size:10px;}}
+/* ===== PAGE FOOTER ===== */
+.page-footer{
+  text-align:center;padding:14px 20px;margin-top:18px;
+  border-top:1px solid rgba(255,255,255,.1);
+  color:#80a080;font-size:clamp(8px,0.9vw,11px);letter-spacing:.2px;line-height:1.7;
+}
+.page-footer strong{color:#b0c0b0;}
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media(max-width:768px){
+  body{padding:6px;align-items:flex-start;}
+  .page{margin:0;padding:14px 10px;border-radius:6px;}
+  .form-row{flex-direction:column;border-radius:20px;}
+  .form-row .form-label{width:100%;border-right:none;border-bottom:1px solid rgba(34,139,34,.2);padding:11px 14px;min-width:auto;border-radius:20px 20px 0 0;font-size:12px;}
+  .form-row input,.form-row select{padding:12px 16px;font-size:15px;border-radius:0 0 20px 20px;}
+  .btn{padding:12px 36px;width:auto;font-size:12px;}
+  .btn-secondary{padding:9px 16px;font-size:10px;}
+  .btn-row{gap:6px;}
+  table.pay-table{min-width:600px;font-size:9px;}
+  .modal-box{width:96vw;}
+}
+@media(max-width:480px){
+  body{padding:4px;}
+  .page{padding:10px 6px;border-radius:4px;}
+  .main-heading h1{font-size:15px;letter-spacing:1px;}
+  .section-title{font-size:11px;}
+  .form-row{border-radius:16px;}
+  .form-row .form-label{font-size:11px;padding:9px 12px;}
+  .form-row input,.form-row select{font-size:14px;padding:10px 14px;}
+  table.pay-table{min-width:500px;font-size:8px;}
+  .btn{font-size:11px;padding:10px 28px;}
+  .btn-secondary{font-size:9px;padding:7px 14px;}
+  .td-actions{width:70px;}
+  .action-btn{width:20px;height:20px;font-size:9px;}
+}
+
+/* ===== PRINT STYLES ===== */
+@media print{
+  body{background:#fff!important;display:block;padding:0;align-items:flex-start;}
+  .page{box-shadow:none!important;border:2px solid #000!important;background:#fff!important;margin:0!important;padding:20px!important;max-width:100%;}
+  .main-heading h1{color:#000!important;text-shadow:none!important;}
+  .btn-row,.td-actions,.action-btn{display:none!important;}
+  table.pay-table thead th{background:#f0f0f0!important;color:#000!important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  table.pay-table tbody td{color:#000!important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .page-footer{color:#555!important;}
+}
 </style>
 </head>
-<body>
+<body oncontextmenu="return false;" oncopy="return false;" oncut="return false;" onpaste="return false;">
 
 <div class="page">
 <div class="main-heading">
-<h1>Pay Detail Summary</h1>
+<h1>PAY DETAIL SUMMARY</h1>
 <div class="subtitle">Government Employee Pay Record System</div>
 </div>
 <div class="section-title">Individual Particulars</div>
 <div class="particulars-form">
+<div class="form-row"><div class="form-label">Full Name</div><input type="text" id="inp_name" placeholder="Enter individual's full name"></div>
 <div class="form-row"><div class="form-label">Date of Enrolment</div><input type="date" id="inp_enrol"></div>
-<div class="form-row"><div class="form-label">Date of Mustered (Passing out date)</div><input type="date" id="inp_mustred"></div>
+<div class="form-row"><div class="form-label">Date of Mustered</div><input type="date" id="inp_mustred"></div>
 <div class="form-row"><div class="form-label">Pay Scale</div><select id="inp_scale"><option value="">-- Select Pay Scale --</option></select></div>
 <div class="form-row"><div class="form-label">Date of Retirement</div><input type="date" id="inp_retire"></div>
 </div>
@@ -126,56 +396,56 @@ table.pay-table tbody tr.row-inc td.td-event{text-align:left;}
 <div id="error_area" class="hidden error-msg"></div>
 <div id="result_area" class="hidden">
 <div class="btn-row">
-<button class="btn-secondary btn-print" onclick="openPrintPreview()">🖨 PRINT / SAVE PDF</button>
-<button class="btn-secondary btn-recalc" onclick="calculatePay()">🔄 RECALCULATE</button>
+<button class="btn-secondary btn-print" onclick="openPrintPreview()">PRINT / SAVE PDF</button>
+<button class="btn-secondary btn-recalc" onclick="calculatePay()">RECALCULATE</button>
 </div>
 <div class="result-cards"><div id="summary_boxes"></div></div>
 <div class="table-section"><div class="table-title">Year-Wise Pay Details</div><div class="table-container"><div id="pay_table_area"></div></div></div>
 </div>
+<div class="page-footer">
+<strong>Pay Verification System</strong> &mdash; Designed by <strong>Mohsin Khan</strong><br>
+For any issue feel free to contact <strong>0312-3883319</strong>
+</div>
 </div>
 
-<!-- ===== UNIFIED ACTION MODAL ===== -->
+<!-- ===== MODALS ===== -->
 <div class="modal-overlay" id="main_modal">
 <div class="modal-box">
 <div class="modal-header"><span id="modal_title">Add Entry</span><button class="modal-close" onclick="closeModal()">✕</button></div>
 <div class="modal-body" id="modal_body"></div>
-<div class="modal-footer"><button class="btn-modal-cancel" onclick="closeModal()">Cancel</button><button class="btn-modal-ok" onclick="applyModalAction()">✓ Apply</button></div>
+<div class="modal-footer"><button class="btn-modal-cancel" onclick="closeModal()">Cancel</button><button class="btn-modal-ok" onclick="applyModalAction()">Apply</button></div>
 </div>
 </div>
 
-<!-- ===== CONFIRMATION MODAL ===== -->
 <div class="modal-overlay" id="confirm_modal">
-<div class="modal-box" style="width:420px;">
-<div class="modal-header"><span>⚠ Confirm Delete</span><button class="modal-close" onclick="closeConfirmModal()">✕</button></div>
-<div class="modal-body" style="text-align:center;padding:24px;"><div class="confirm-icon warning">⚠</div><div class="confirm-message">Are you sure you want to delete this entry?</div><div class="confirm-detail" id="confirm_detail">This action cannot be undone.</div></div>
-<div class="modal-footer"><button class="btn-modal-cancel" onclick="closeConfirmModal()">Cancel</button><button class="btn-modal-delete" onclick="confirmDelete()">🗑 Delete</button></div>
+<div class="modal-box" style="width:min(420px,92vw);">
+<div class="modal-header"><span>Confirm Delete</span><button class="modal-close" onclick="closeConfirmModal()">✕</button></div>
+<div class="modal-body" style="text-align:center;padding:22px;"><div class="confirm-icon warning">!</div><div class="confirm-message">Are you sure you want to delete this entry?</div><div class="confirm-detail" id="confirm_detail">This action cannot be undone.</div></div>
+<div class="modal-footer"><button class="btn-modal-cancel" onclick="closeConfirmModal()">Cancel</button><button class="btn-modal-delete" onclick="confirmDelete()">Delete</button></div>
 </div>
 </div>
 
-<!-- ===== VIEW DETAIL MODAL ===== -->
 <div class="modal-overlay" id="view_modal">
 <div class="modal-box">
-<div class="modal-header"><span>📋 Entry Details</span><button class="modal-close" onclick="document.getElementById('view_modal').classList.remove('active')">✕</button></div>
+<div class="modal-header"><span>Entry Details</span><button class="modal-close" onclick="document.getElementById('view_modal').classList.remove('active')">✕</button></div>
 <div class="modal-body"><div class="detail-list" id="view_modal_body"></div></div>
 <div class="modal-footer"><button class="btn-modal-cancel" onclick="document.getElementById('view_modal').classList.remove('active')">Close</button></div>
 </div>
 </div>
 
-<!-- ===== PRINT PREVIEW MODAL ===== -->
 <div class="print-preview-overlay" id="print_preview_overlay">
 <div class="print-preview-container">
-<div class="modal-header" style="border-radius:8px 8px 0 0;"><span>🖨 Print Preview - Pay Detail Summary</span><div style="display:flex;gap:8px;"><button class="btn-modal-ok" style="padding:7px 16px;font-size:11px;" onclick="saveAsPDF()">💾 PDF</button><button class="btn-modal-ok" style="padding:7px 16px;font-size:11px;background:#333;" onclick="printDocument()">🖨 Print</button><button class="modal-close" onclick="closePrintPreview()">✕</button></div></div>
+<div class="modal-header" style="background:#1a1a1a!important;color:#fff!important;border-radius:12px 12px 0 0;"><span>Print Preview - Pay Detail Summary</span><div style="display:flex;gap:8px;"><button class="btn-modal-ok" style="background:#333!important;color:#fff!important;padding:7px 16px;font-size:11px;" onclick="saveAsPDF()">PDF</button><button class="btn-modal-ok" style="background:#555!important;color:#fff!important;padding:7px 16px;font-size:11px;" onclick="printDocument()">Print</button><button class="modal-close" onclick="closePrintPreview()">✕</button></div></div>
 <div class="print-content" id="print_preview_content"></div>
-<div class="modal-footer"><button class="btn-modal-cancel" onclick="closePrintPreview()">Close</button><button class="btn-modal-ok" onclick="saveAsPDF()">💾 Save PDF</button><button class="btn-modal-ok" style="background:#333;" onclick="printDocument()">🖨 Print</button></div>
+<div class="modal-footer" style="background:#f5f5f5!important;"><button class="btn-modal-cancel" onclick="closePrintPreview()">Close</button><button class="btn-modal-ok" style="background:#1a1a1a!important;color:#fff!important;" onclick="saveAsPDF()">Save PDF</button><button class="btn-modal-ok" style="background:#333!important;color:#fff!important;" onclick="printDocument()">Print</button></div>
 </div>
 </div>
 
 <script>
 'use strict';
-console.log('Pay Detail Summary – Clean Professional Version');
 
 /* ================================================================
-   COMPLETE PAY SCALE DATA
+   PAY SCALE DATA
    ================================================================ */
 const PAY_SCALES={
 "Z-1":[{year:1991,min:920,inc:26,stages:[920,946,972,998,1024,1050,1076,1102,1128,1154,1180,1206,1232,1258,1284,1310,1336,1362,1388,1414,1440,1466,1492,1518,1544,1570,1596,1622,1648,1674,1700]},{year:1994,min:1245,inc:35,stages:[1245,1280,1315,1350,1385,1420,1455,1490,1525,1560,1595,1630,1665,1700,1735,1770,1805,1840,1875,1910,1945,1980,2015,2050,2085,2120,2155,2190,2225,2260,2295]},{year:2001,min:1870,inc:55,stages:[1870,1925,1980,2035,2090,2145,2200,2255,2310,2365,2420,2475,2530,2585,2640,2695,2750,2805,2860,2915,2970,3025,3080,3135,3190,3245,3300,3355,3410,3465,3520]},{year:2005,min:2150,inc:65,stages:[2150,2215,2280,2345,2410,2475,2540,2605,2670,2735,2800,2865,2930,2995,3060,3125,3190,3255,3320,3385,3450,3515,3580,3645,3710,3775,3840,3905,3970,4035,4100]},{year:2007,min:2475,inc:75,stages:[2475,2550,2625,2700,2775,2850,2925,3000,3075,3150,3225,3300,3375,3450,3525,3600,3675,3750,3825,3900,3975,4050,4125,4200,4275,4350,4425,4500,4575,4650,4725]},{year:2008,min:2970,inc:90,stages:[2970,3060,3150,3240,3330,3420,3510,3600,3690,3780,3870,3960,4050,4140,4230,4320,4410,4500,4590,4680,4770,4860,4950,5040,5130,5220,5310,5400,5490,5580,5670]},{year:2011,min:4800,inc:150,stages:[4800,4950,5100,5250,5400,5550,5700,5850,6000,6150,6300,6450,6600,6750,6900,7050,7200,7350,7500,7650,7800,7950,8100,8250,8400,8550,8700,8850,9000,9150,9300]},{year:2015,min:6210,inc:195,stages:[6210,6405,6600,6795,6990,7185,7380,7575,7770,7965,8160,8355,8550,8745,8940,9135,9330,9525,9720,9915,10110,10305,10500,10695,10890,11085,11280,11475,11670,11865,12060]},{year:2016,min:7640,inc:240,stages:[7640,7880,8120,8360,8600,8840,9080,9320,9560,9800,10040,10280,10520,10760,11000,11240,11480,11720,11960,12200,12440,12680,12920,13160,13400,13640,13880,14120,14360,14600,14840]},{year:2017,min:10610,inc:330,stages:[10610,10940,11270,11600,11930,12260,12590,12920,13250,13580,13910,14240,14570,14900,15230,15560,15890,16220,16550,16880,17210,17540,17870,18200,18530,18860,19190,19520,19850,20180,20510]},{year:2022,min:15620,inc:490,stages:[15620,16110,16600,17090,17580,18070,18560,19050,19540,20030,20520,21010,21500,21990,22480,22970,23460,23950,24440,24930,25420,25910,26400,26890,27380,27870,28360,28850,29340,29830,30320]}],
@@ -191,77 +461,16 @@ const PAY_SCALES={
 "X-4":[{year:1991,min:2897,inc:146,stages:[2897,3043,3189,3335,3481,3627,3773,3919,4065,4211,4357,4503,4649,4795,4941,5087,5233,5379,5525,5671,5817,5963,6109,6255,6401,6547,6693,6839,6985,7131,7277]},{year:1994,min:3914,inc:197,stages:[3914,4111,4308,4505,4702,4899,5096,5293,5490,5687,5884,6081,6278,6475,6672,6869,7066,7263,7460,7657,7854,8051,8248,8445,8642,8839,9036,9233,9430,9627,9824]},{year:2001,min:5870,inc:295,stages:[5870,6165,6460,6755,7050,7345,7640,7935,8230,8525,8820,9115,9410,9705,10000,10295,10590,10885,11180,11475,11770,12065,12360,12655,12950,13245,13540,13835,14130,14425,14720]},{year:2005,min:6750,inc:340,stages:[6750,7090,7430,7770,8110,8450,8790,9130,9470,9810,10150,10490,10830,11170,11510,11850,12190,12530,12870,13210,13550,13890,14230,14570,14910,15250,15590,15930,16270,16610,16950]},{year:2007,min:7765,inc:390,stages:[7765,8155,8545,8935,9325,9715,10105,10495,10885,11275,11665,12055,12445,12835,13225,13615,14005,14395,14785,15175,15565,15955,16345,16735,17125,17515,17905,18295,18685,19075,19465]},{year:2008,min:9320,inc:470,stages:[9320,9790,10260,10730,11200,11670,12140,12610,13080,13550,14020,14490,14960,15430,15900,16370,16840,17310,17780,18250,18720,19190,19660,20130,20600,21070,21540,22010,22480,22950,23420]},{year:2011,min:14000,inc:800,stages:[14000,14800,15600,16400,17200,18000,18800,19600,20400,21200,22000,22800,23600,24400,25200,26000,26800,27600,28400,29200,30000,30800,31600,32400,33200,34000,34800,35600,36400,37200,38000]},{year:2015,min:18200,inc:1035,stages:[18200,19235,20270,21305,22340,23375,24410,25445,26480,27515,28550,29585,30620,31655,32690,33725,34760,35795,36830,37865,38900,39935,40970,42005,43040,44075,45110,46145,47180,48215,49250]},{year:2016,min:22370,inc:1280,stages:[22370,23650,24930,26210,27490,28770,30050,31330,32610,33890,35170,36450,37730,39010,40290,41570,42850,44130,45410,46690,47970,49250,50530,51810,53090,54370,55650,56930,58210,59490,60770]},{year:2017,min:31690,inc:1750,stages:[31690,33440,35190,36940,38690,40440,42190,43940,45690,47440,49190,50940,52690,54440,56190,57940,59690,61440,63190,64940,66690,68440,70190,71940,73690,75440,77190,78940,80690,82440,84190]},{year:2022,min:46610,inc:2580,stages:[46610,49190,51770,54350,56930,59510,62090,64670,67250,69830,72410,74990,77570,80150,82730,85310,87890,90470,93050,95630,98210,100790,103370,105950,108530,111110,113690,116270,118850,121430,124010]}]
 };
 
-/* ================================================================
-   COMPLETE PAY EVENTS (Chronological Order)
-   ================================================================ */
 const PAY_EVENTS=[
-  // 1991-1993: Only revision at start
-  {date:'01/07/1994',type:'rev',label:'Pay Revised on 01/07/1994',scaleYear:1994},
-  {date:'01/12/1994',type:'inc',label:'Annual Inc on 01/12/1994'},
-  {date:'01/12/1995',type:'inc',label:'Annual Inc on 01/12/1995'},
-  {date:'01/12/1996',type:'inc',label:'Annual Inc on 01/12/1996'},
-  {date:'01/12/1997',type:'inc',label:'Annual Inc on 01/12/1997'},
-  {date:'01/12/1998',type:'inc',label:'Annual Inc on 01/12/1998'},
-  {date:'01/12/1999',type:'inc',label:'Annual Inc on 01/12/1999'},
-  {date:'01/12/2000',type:'inc',label:'Annual Inc on 01/12/2000'},
-  // 2001 revision (24 Dec) + annual inc
-  {date:'01/12/2001',type:'inc',label:'Annual Inc on 01/12/2001'},
-  {date:'24/12/2001',type:'rev',label:'Pay Revised on 24/12/2001',scaleYear:2001},
-  // 2002-2004: Annual increments
-  {date:'01/12/2002',type:'inc',label:'Annual Inc on 01/12/2002'},
-  {date:'01/12/2003',type:'inc',label:'Annual Inc on 01/12/2003'},
-  {date:'01/12/2004',type:'inc',label:'Annual Inc on 01/12/2004'},
-  // 2005 revision + annual inc
-  {date:'01/07/2005',type:'rev',label:'Pay Revised on 01/07/2005',scaleYear:2005},
-  {date:'01/12/2005',type:'inc',label:'Annual Inc on 01/12/2005'},
-  // 2006: Annual increment
-  {date:'01/12/2006',type:'inc',label:'Annual Inc on 01/12/2006'},
-  // 2007 revision + annual inc
-  {date:'01/07/2007',type:'rev',label:'Pay Revised on 01/07/2007',scaleYear:2007},
-  {date:'01/12/2007',type:'inc',label:'Annual Inc on 01/12/2007'},
-  // 2008 revision + annual inc
-  {date:'01/07/2008',type:'rev',label:'Pay Revised on 01/07/2008',scaleYear:2008},
-  {date:'01/12/2008',type:'inc',label:'Annual Inc on 01/12/2008'},
-  // 2009-2010: Annual increments
-  {date:'01/12/2009',type:'inc',label:'Annual Inc on 01/12/2009'},
-  {date:'01/12/2010',type:'inc',label:'Annual Inc on 01/12/2010'},
-  // 2011 revision + annual inc
-  {date:'01/07/2011',type:'rev',label:'Pay Revised on 01/07/2011',scaleYear:2011},
-  {date:'01/12/2011',type:'inc',label:'Annual Inc on 01/12/2011'},
-  // 2012-2014: Annual increments
-  {date:'01/12/2012',type:'inc',label:'Annual Inc on 01/12/2012'},
-  {date:'01/12/2013',type:'inc',label:'Annual Inc on 01/12/2013'},
-  {date:'01/12/2014',type:'inc',label:'Annual Inc on 01/12/2014'},
-  // 2015 revision + annual inc
-  {date:'01/07/2015',type:'rev',label:'Pay Revised on 01/07/2015',scaleYear:2015},
-  {date:'01/12/2015',type:'inc',label:'Annual Inc on 01/12/2015'},
-  // 2016 revision + annual inc
-  {date:'01/07/2016',type:'rev',label:'Pay Revised on 01/07/2016',scaleYear:2016},
-  {date:'01/12/2016',type:'inc',label:'Annual Inc on 01/12/2016'},
-  // 2017 revision + annual inc
-  {date:'01/07/2017',type:'rev',label:'Pay Revised on 01/07/2017',scaleYear:2017},
-  {date:'01/12/2017',type:'inc',label:'Annual Inc on 01/12/2017'},
-  // 2018-2021: Annual increments
-  {date:'01/12/2018',type:'inc',label:'Annual Inc on 01/12/2018'},
-  {date:'01/12/2019',type:'inc',label:'Annual Inc on 01/12/2019'},
-  {date:'01/12/2020',type:'inc',label:'Annual Inc on 01/12/2020'},
-  {date:'01/12/2021',type:'inc',label:'Annual Inc on 01/12/2021'},
-  // 2022 revision + annual inc
-  {date:'01/07/2022',type:'rev',label:'Pay Revised on 01/07/2022',scaleYear:2022},
-  {date:'01/12/2022',type:'inc',label:'Annual Inc on 01/12/2022'},
-  // 2023-2026: Annual increments
-  {date:'01/12/2023',type:'inc',label:'Annual Inc on 01/12/2023'},
-  {date:'01/12/2024',type:'inc',label:'Annual Inc on 01/12/2024'},
-  {date:'01/12/2025',type:'inc',label:'Annual Inc on 01/12/2025'},
-  {date:'01/12/2026',type:'inc',label:'Annual Inc on 01/12/2026'}
+{date:'01/07/1994',type:'rev',label:'Pay Revised on 01/07/1994',scaleYear:1994},{date:'01/12/1994',type:'inc',label:'Annual Inc on 01/12/1994'},{date:'01/12/1995',type:'inc',label:'Annual Inc on 01/12/1995'},{date:'01/12/1996',type:'inc',label:'Annual Inc on 01/12/1996'},{date:'01/12/1997',type:'inc',label:'Annual Inc on 01/12/1997'},{date:'01/12/1998',type:'inc',label:'Annual Inc on 01/12/1998'},{date:'01/12/1999',type:'inc',label:'Annual Inc on 01/12/1999'},{date:'01/12/2000',type:'inc',label:'Annual Inc on 01/12/2000'},{date:'01/12/2001',type:'inc',label:'Annual Inc on 01/12/2001'},{date:'24/12/2001',type:'rev',label:'Pay Revised on 24/12/2001',scaleYear:2001},{date:'01/12/2002',type:'inc',label:'Annual Inc on 01/12/2002'},{date:'01/12/2003',type:'inc',label:'Annual Inc on 01/12/2003'},{date:'01/12/2004',type:'inc',label:'Annual Inc on 01/12/2004'},{date:'01/07/2005',type:'rev',label:'Pay Revised on 01/07/2005',scaleYear:2005},{date:'01/12/2005',type:'inc',label:'Annual Inc on 01/12/2005'},{date:'01/12/2006',type:'inc',label:'Annual Inc on 01/12/2006'},{date:'01/07/2007',type:'rev',label:'Pay Revised on 01/07/2007',scaleYear:2007},{date:'01/12/2007',type:'inc',label:'Annual Inc on 01/12/2007'},{date:'01/07/2008',type:'rev',label:'Pay Revised on 01/07/2008',scaleYear:2008},{date:'01/12/2008',type:'inc',label:'Annual Inc on 01/12/2008'},{date:'01/12/2009',type:'inc',label:'Annual Inc on 01/12/2009'},{date:'01/12/2010',type:'inc',label:'Annual Inc on 01/12/2010'},{date:'01/07/2011',type:'rev',label:'Pay Revised on 01/07/2011',scaleYear:2011},{date:'01/12/2011',type:'inc',label:'Annual Inc on 01/12/2011'},{date:'01/12/2012',type:'inc',label:'Annual Inc on 01/12/2012'},{date:'01/12/2013',type:'inc',label:'Annual Inc on 01/12/2013'},{date:'01/12/2014',type:'inc',label:'Annual Inc on 01/12/2014'},{date:'01/07/2015',type:'rev',label:'Pay Revised on 01/07/2015',scaleYear:2015},{date:'01/12/2015',type:'inc',label:'Annual Inc on 01/12/2015'},{date:'01/07/2016',type:'rev',label:'Pay Revised on 01/07/2016',scaleYear:2016},{date:'01/12/2016',type:'inc',label:'Annual Inc on 01/12/2016'},{date:'01/07/2017',type:'rev',label:'Pay Revised on 01/07/2017',scaleYear:2017},{date:'01/12/2017',type:'inc',label:'Annual Inc on 01/12/2017'},{date:'01/12/2018',type:'inc',label:'Annual Inc on 01/12/2018'},{date:'01/12/2019',type:'inc',label:'Annual Inc on 01/12/2019'},{date:'01/12/2020',type:'inc',label:'Annual Inc on 01/12/2020'},{date:'01/12/2021',type:'inc',label:'Annual Inc on 01/12/2021'},{date:'01/07/2022',type:'rev',label:'Pay Revised on 01/07/2022',scaleYear:2022},{date:'01/12/2022',type:'inc',label:'Annual Inc on 01/12/2022'},{date:'01/12/2023',type:'inc',label:'Annual Inc on 01/12/2023'},{date:'01/12/2024',type:'inc',label:'Annual Inc on 01/12/2024'},{date:'01/12/2025',type:'inc',label:'Annual Inc on 01/12/2025'},{date:'01/12/2026',type:'inc',label:'Annual Inc on 01/12/2026'}
 ];
 
-/* ================================================================
-   HELPER FUNCTIONS
-   ================================================================ */
-const REV_EFFECTIVE_DATES={};
-PAY_EVENTS.forEach(ev=>{if(ev.type==='rev'&&ev.scaleYear){if(!REV_EFFECTIVE_DATES[ev.scaleYear]){REV_EFFECTIVE_DATES[ev.scaleYear]=ev.date;}}});
+(function(){
+  const sel=document.getElementById('inp_scale');
+  if(sel){const scales=Object.keys(PAY_SCALES).sort();let opts='<option value="">-- Select Pay Scale --</option>';scales.forEach(s=>{opts+=`<option value="${s}">${s}</option>`;});sel.innerHTML=opts;}
+})();
 
+const REV_EFFECTIVE_DATES={};PAY_EVENTS.forEach(ev=>{if(ev.type==='rev'&&ev.scaleYear){if(!REV_EFFECTIVE_DATES[ev.scaleYear]){REV_EFFECTIVE_DATES[ev.scaleYear]=ev.date;}}});
 function pD(s){if(!s)return null;s=s.trim();if(s.match(/^\d{4}-\d{2}-\d{2}$/)){const p=s.split('-');s=p[2]+'/'+p[1]+'/'+p[0];}const p=s.split('/');if(p.length!==3)return null;const d=new Date(+p[2],+p[1]-1,+p[0]);return isNaN(d.getTime())?null:d;}
 function fD(d){if(!d)return'';return String(d.getDate()).padStart(2,'0')+'/'+String(d.getMonth()+1).padStart(2,'0')+'/'+d.getFullYear();}
 function jN(d){return(d.getMonth()+1)>=6&&(d.getMonth()+1)<=11;}
@@ -277,234 +486,61 @@ function gSS(s,sy){const r=gSE(s,sy);return r?`${r.min}-${r.inc}-${r.stages[r.st
 function gInc(s,sy){const r=gSE(s,sy);return r?r.inc:0;}
 function fNH(s,sy,amt){const r=gSE(s,sy);if(!r)return amt;for(const st of r.stages){if(st>=amt)return st;}return r.stages[r.stages.length-1];}
 
-function initScaleDropdown(){
-  const sel=document.getElementById('inp_scale');
-  sel.innerHTML='<option value="">-- Select Pay Scale --</option>'+Object.keys(PAY_SCALES).sort().map(s=>`<option value="${s}">${s}</option>`).join('');
-}
-initScaleDropdown();
-
-/* ================================================================
-   GLOBAL STATE
-   ================================================================ */
-let G_R=[],G_MD=null,G_RD=null,G_IS='',G_MA=null,G_MI=null;
-let G_PENDING_DELETE_IDX=null;
-
-/* ================================================================
-   CONFIRMATION DIALOG
-   ================================================================ */
+let G_R=[],G_MD=null,G_RD=null,G_IS='',G_MA=null,G_MI=null,G_PENDING_DELETE_IDX=null;
 function confirmDeleteRow(idx){G_PENDING_DELETE_IDX=idx;const row=G_R[idx];if(row){document.getElementById('confirm_detail').textContent=`Entry: ${row.eventLabel}`;}document.getElementById('confirm_modal').classList.add('active');}
 function closeConfirmModal(){document.getElementById('confirm_modal').classList.remove('active');G_PENDING_DELETE_IDX=null;}
 function confirmDelete(){if(G_PENDING_DELETE_IDX!==null){G_R.splice(G_PENDING_DELETE_IDX,1);renderTable();}closeConfirmModal();}
 
-/* ================================================================
-   MAIN CALCULATION
-   ================================================================ */
 function calculatePay(){
-  const mustred=document.getElementById('inp_mustred').value;
-  const retire=document.getElementById('inp_retire').value;
-  const scale=document.getElementById('inp_scale').value;
-  document.getElementById('error_area').classList.add('hidden');
-  document.getElementById('result_area').classList.add('hidden');
-  if(!mustred||!retire||!scale){showErr('Please fill all fields.');return;}
-  const mD=pD(mustred),rD=pD(retire);
-  if(!mD||!rD){showErr('Invalid date format.');return;}
+  const mustred=document.getElementById('inp_mustred').value,retire=document.getElementById('inp_retire').value,scale=document.getElementById('inp_scale').value;
+  document.getElementById('error_area').classList.add('hidden');document.getElementById('result_area').classList.add('hidden');
+  if(!mustred||!retire||!scale){showErr('Please fill all required fields (Mustered Date, Pay Scale, Retirement Date).');return;}
+  const mD=pD(mustred),rD=pD(retire);if(!mD||!rD){showErr('Invalid date format.');return;}
   if(rD<=mD){showErr('Retirement date must be after mustered date.');return;}
   if(!gSR(scale).length){showErr('Scale not found.');return;}
-  G_MD=mD;G_RD=rD;G_IS=scale;
-  const iRY=gARY(scale,mD);
+  G_MD=mD;G_RD=rD;G_IS=scale;const iRY=gARY(scale,mD);
   if(!iRY){showErr('No applicable scale revision found for this date.');return;}
-  const iR=gSE(scale,iRY),mJN=jN(mD),iP=iR.stages[0];
-  let cP=iP,cS=scale,cRY=iRY;
-  const rows=[{id:'r1',eventLabel:`Mustered in Scale ${scale}`,date:mD,scale:cS,scaleRevYear:cRY,pay:cP,changeAmt:0,remark:'Initial Stage 0',type:'mustered',skipNextInc:mJN}];
+  const iR=gSE(scale,iRY),mJN=jN(mD),iP=iR.stages[0];let cP=iP,cS=scale,cRY=iRY;
+  const rows=[{id:'r1',eventLabel:`Mustered in Scale ${scale} on ${fD(mD)}`,date:mD,scale:cS,scaleRevYear:cRY,pay:cP,changeAmt:0,remark:'Initial Stage 0',type:'mustered',skipNextInc:mJN}];
   let sk=mJN;
-  for(const ev of PAY_EVENTS){
-    const ed=pD(ev.date);
-    if(!ed||ed<=mD||ed>rD)continue;
-    if(ev.type==='inc'){
-      if(sk){sk=false;rows.push({id:'r'+Date.now()+Math.random(),eventLabel:ev.label+' (Skip)',date:ed,scale:cS,scaleRevYear:cRY,pay:cP,changeAmt:0,remark:'Jun-Nov Skip',type:'inc-skip'});continue;}
+  for(const ev of PAY_EVENTS){const ed=pD(ev.date);if(!ed||ed<=mD||ed>rD)continue;
+    if(ev.type==='inc'){if(sk){sk=false;rows.push({id:'r'+Date.now()+Math.random(),eventLabel:ev.label+' (Skip)',date:ed,scale:cS,scaleRevYear:cRY,pay:cP,changeAmt:0,remark:'Jun-Nov Skip',type:'inc-skip'});continue;}
       if(iMS(cS,cRY,cP)){rows.push({id:'r'+Date.now()+Math.random(),eventLabel:ev.label+' (Max)',date:ed,scale:cS,scaleRevYear:cRY,pay:cP,changeAmt:0,remark:'Max Stage',type:'inc'});continue;}
-      const pr=cP;cP=aI(cS,cRY,cP);
-      rows.push({id:'r'+Date.now()+Math.random(),eventLabel:ev.label,date:ed,scale:cS,scaleRevYear:cRY,pay:cP,changeAmt:cP-pr,remark:'Inc',type:'inc'});
-    }else if(ev.type==='rev'){
-      if(!gSE(cS,ev.scaleYear))continue;
-      const pr=cP,oRY=cRY;cRY=ev.scaleYear;cP=fOR(cS,oRY,cRY,pr);
-      rows.push({id:'r'+Date.now()+Math.random(),eventLabel:ev.label,date:ed,scale:cS,scaleRevYear:cRY,pay:cP,changeAmt:cP-pr,remark:'Revision',type:'rev'});
-    }
+      const pr=cP;cP=aI(cS,cRY,cP);rows.push({id:'r'+Date.now()+Math.random(),eventLabel:ev.label,date:ed,scale:cS,scaleRevYear:cRY,pay:cP,changeAmt:cP-pr,remark:'Inc',type:'inc'});}
+    else if(ev.type==='rev'){if(!gSE(cS,ev.scaleYear))continue;const pr=cP,oRY=cRY;cRY=ev.scaleYear;cP=fOR(cS,oRY,cRY,pr);rows.push({id:'r'+Date.now()+Math.random(),eventLabel:ev.label,date:ed,scale:cS,scaleRevYear:cRY,pay:cP,changeAmt:cP-pr,remark:'Revision',type:'rev'});}
   }
-  const rJN=jN(rD);
-  if(rJN&&!iMS(cS,cRY,cP)){const pr=cP;cP=aI(cS,cRY,cP);rows.push({id:'r'+Date.now()+Math.random(),eventLabel:'Pension Increment',date:rD,scale:cS,scaleRevYear:cRY,pay:cP,changeAmt:cP-pr,remark:'Retired Jun-Nov',type:'pension'});}
-  G_R=rows;updateFinalPayCard();renderTable();
-  document.getElementById('result_area').classList.remove('hidden');
-  document.getElementById('result_area').scrollIntoView({behavior:'smooth'});
+  const rJN=jN(rD);if(rJN&&!iMS(cS,cRY,cP)){const pr=cP;cP=aI(cS,cRY,cP);rows.push({id:'r'+Date.now()+Math.random(),eventLabel:'Pension Increment',date:rD,scale:cS,scaleRevYear:cRY,pay:cP,changeAmt:cP-pr,remark:'Retired Jun-Nov',type:'pension'});}
+  G_R=rows;updateFinalPayCard();renderTable();document.getElementById('result_area').classList.remove('hidden');document.getElementById('result_area').scrollIntoView({behavior:'smooth'});
 }
 
-function updateFinalPayCard(){
-  if(!G_R.length)return;
-  const lR=G_R[G_R.length-1],rJN=jN(G_RD);
-  document.getElementById('summary_boxes').innerHTML=`
-    <div class="final-pay-card">
-      <div class="card-label">Final Basic Pay at Retirement</div>
-      <div class="card-amount">Rs. ${lR.pay.toLocaleString()}</div>
-      <div class="card-detail">Scale: ${lR.scale} | Retirement: ${fD(G_RD)}${rJN?' | Pension Added':''}</div>
-    </div>`;
-}
+function updateFinalPayCard(){if(!G_R.length)return;const lR=G_R[G_R.length-1],rJN=jN(G_RD);document.getElementById('summary_boxes').innerHTML=`<div class="final-pay-card"><div class="card-label">Final Basic Pay at Retirement</div><div class="card-amount">Rs. ${lR.pay.toLocaleString()}</div><div class="card-detail">Scale: ${lR.scale} | Retirement: ${fD(G_RD)}${rJN?' | Pension Added':''}</div></div>`;}
+function renderTable(){G_R.forEach((r,i)=>r.sno=i+1);const lR=G_R[G_R.length-1];let h=`<table class="pay-table"><thead><tr><th>S.No</th><th>Pay Details</th><th>Pay Scale</th><th>Basic Pay (Rs)</th><th>Change (Rs)</th><th>Remarks</th><th>Actions</th></tr></thead><tbody>`;G_R.forEach((r,idx)=>{const rc=getRC(r.type),sc=gSS(r.scale,r.scaleRevYear),cc=r.changeAmt>0?'td-chg pos':(r.changeAmt<0?'td-chg neg':'td-chg'),ct=r.changeAmt>0?'+'+r.changeAmt.toLocaleString():(r.changeAmt<0?r.changeAmt.toLocaleString():'—');h+=`<tr class="${rc}"><td class="td-sno">${r.sno}</td><td class="td-event">${r.eventLabel}</td><td class="td-scale">${r.scale}<br><small>(${sc})</small></td><td class="td-pay">${r.pay.toLocaleString()}</td><td class="${cc}">${ct}</td><td class="td-remark">${r.remark}</td><td class="td-actions"><button class="action-btn view-btn" title="View" onclick="viewRow(${idx})">&#128269;</button><button class="action-btn add-btn" title="Add" onclick="showActionMenu(${idx},event)">+</button><button class="action-btn delete-btn" title="Delete" onclick="confirmDeleteRow(${idx})">&#10005;</button></td></tr>`;});h+=`</tbody></table>`;if(lR){h+=`<div class="pay-summary-footer"><b>Final Basic Pay at Retirement:</b> <span style="font-weight:700;margin:0 8px;">Rs. ${lR.pay.toLocaleString()}</span> | <b>Scale:</b> ${lR.scale} | <b>Retirement:</b> ${fD(G_RD)}</div>`;}document.getElementById('pay_table_area').innerHTML=h;updateFinalPayCard();}
+function getRC(t){switch(t){case'mustered':return'row-mustered';case'rev':return'row-rev';case'pension':return'row-pension';case'prom':return'row-prom';case'upgrade':return'row-upgrade';case'advinc':return'row-advinc';case'inc-skip':return'row-inc-skip';default:return'row-inc';}}
+function viewRow(idx){const r=G_R[idx];if(!r)return;const sc=gSS(r.scale,r.scaleRevYear);document.getElementById('view_modal_body').innerHTML=`<div class="detail-item"><span class="detail-key">S.No</span><span class="detail-val">${r.sno}</span></div><div class="detail-item"><span class="detail-key">Event</span><span class="detail-val">${r.eventLabel}</span></div><div class="detail-item"><span class="detail-key">Date</span><span class="detail-val">${fD(r.date)}</span></div><div class="detail-item"><span class="detail-key">Scale</span><span class="detail-val">${r.scale} (${sc})</span></div><div class="detail-item"><span class="detail-key">Basic Pay</span><span class="detail-val" style="font-weight:700;">Rs. ${r.pay.toLocaleString()}</span></div><div class="detail-item"><span class="detail-key">Change</span><span class="detail-val" style="color:${r.changeAmt>0?'#2e7d32':r.changeAmt<0?'#c62828':'inherit'}">${r.changeAmt>0?'+':''}${r.changeAmt.toLocaleString()}</span></div><div class="detail-item"><span class="detail-key">Type</span><span class="detail-val">${r.type.toUpperCase()}</span></div><div class="detail-item"><span class="detail-key">Remarks</span><span class="detail-val">${r.remark}</span></div>`;document.getElementById('view_modal').classList.add('active');}
 
-function renderTable(){
-  G_R.forEach((r,i)=>r.sno=i+1);
-  const lR=G_R[G_R.length-1];
-  let h=`<table class="pay-table"><thead><tr><th>S.No</th><th>Pay Details</th><th>Pay Scale</th><th>Basic Pay (Rs)</th><th>Change (Rs)</th><th>Remarks</th><th>Actions</th></tr></thead><tbody>`;
-  G_R.forEach((r,idx)=>{
-    const rc=getRC(r.type),sc=gSS(r.scale,r.scaleRevYear);
-    const cc=r.changeAmt>0?'td-chg pos':(r.changeAmt<0?'td-chg neg':'td-chg');
-    const ct=r.changeAmt>0?'+'+r.changeAmt.toLocaleString():(r.changeAmt<0?r.changeAmt.toLocaleString():'—');
-    h+=`<tr class="${rc}"><td class="td-sno">${r.sno}</td><td class="td-event">${r.eventLabel}</td><td class="td-scale">${r.scale}<br><small>(${sc})</small></td><td class="td-pay">${r.pay.toLocaleString()}</td><td class="${cc}">${ct}</td><td class="td-remark">${r.remark}</td><td class="td-actions"><button class="action-btn view-btn" title="View" onclick="viewRow(${idx})">🔍</button><button class="action-btn add-btn" title="Add" onclick="showActionMenu(${idx},event)">+</button><button class="action-btn delete-btn" title="Delete" onclick="confirmDeleteRow(${idx})">✕</button></td></tr>`;
-  });
-  h+=`</tbody></table>`;
-  if(lR){h+=`<div class="pay-summary-footer"><b>Final Basic Pay at Retirement:</b> <span style="font-weight:700;margin:0 8px;">Rs. ${lR.pay.toLocaleString()}</span> | <b>Scale:</b> ${lR.scale} | <b>Retirement:</b> ${fD(G_RD)}</div>`;}
-  document.getElementById('pay_table_area').innerHTML=h;updateFinalPayCard();
-}
+function showActionMenu(idx,event){event.stopPropagation();const ex=document.getElementById('action_menu');if(ex)ex.remove();const m=document.createElement('div');m.id='action_menu';m.className='action-menu';[{l:'Upgradation',a:'upgradation'},{l:'Advance Increment',a:'advinc'},{l:'Promotion',a:'promotion'}].forEach(x=>{const item=document.createElement('div');item.className='action-menu-item';item.textContent=x.l;item.onclick=()=>{m.remove();openModal(idx,x.a);};m.appendChild(item);});document.body.appendChild(m);const rect=event.target.getBoundingClientRect();m.style.left=Math.min(rect.left-100,window.innerWidth-280)+'px';m.style.top=Math.min(rect.bottom+5,window.innerHeight-180)+'px';setTimeout(()=>document.addEventListener('click',function c(e){if(!m.contains(e.target)){m.remove();document.removeEventListener('click',c);}}),10);}
 
-function getRC(t){switch(t){case'mustered':return'row-mustered';case'rev':return'row-rev';case'pension':return'row-pension';case'prom':return'row-prom';case'upgrade':return'row-upgrade';case'advinc':return'row-advinc';case'inc-skip':return'row-inc';default:return'row-inc';}}
-
-function viewRow(idx){
-  const r=G_R[idx];if(!r)return;
-  const sc=gSS(r.scale,r.scaleRevYear);
-  document.getElementById('view_modal_body').innerHTML=`
-    <div class="detail-item"><span class="detail-key">S.No</span><span class="detail-val">${r.sno}</span></div>
-    <div class="detail-item"><span class="detail-key">Event</span><span class="detail-val">${r.eventLabel}</span></div>
-    <div class="detail-item"><span class="detail-key">Date</span><span class="detail-val">${fD(r.date)}</span></div>
-    <div class="detail-item"><span class="detail-key">Scale</span><span class="detail-val">${r.scale} (${sc})</span></div>
-    <div class="detail-item"><span class="detail-key">Basic Pay</span><span class="detail-val" style="font-weight:700;">Rs. ${r.pay.toLocaleString()}</span></div>
-    <div class="detail-item"><span class="detail-key">Change</span><span class="detail-val" style="color:${r.changeAmt>0?'#2e7d32':r.changeAmt<0?'#c62828':'inherit'}">${r.changeAmt>0?'+':''}${r.changeAmt.toLocaleString()}</span></div>
-    <div class="detail-item"><span class="detail-key">Type</span><span class="detail-val">${r.type.toUpperCase()}</span></div>
-    <div class="detail-item"><span class="detail-key">Remarks</span><span class="detail-val">${r.remark}</span></div>`;
-  document.getElementById('view_modal').classList.add('active');
-}
-
-/* ================================================================
-   ACTION MENU & MODALS
-   ================================================================ */
-function showActionMenu(idx,event){
-  event.stopPropagation();
-  const ex=document.getElementById('action_menu');if(ex)ex.remove();
-  const m=document.createElement('div');m.id='action_menu';m.className='action-menu';
-  [{l:'⬆ Upgradation',a:'upgradation'},{l:'🎓 Advance Increment',a:'advinc'},{l:'⭐ Promotion',a:'promotion'}].forEach(x=>{
-    const item=document.createElement('div');item.className='action-menu-item';item.textContent=x.l;
-    item.onclick=()=>{m.remove();openModal(idx,x.a);};m.appendChild(item);
-  });
-  document.body.appendChild(m);
-  const rect=event.target.getBoundingClientRect();
-  m.style.left=Math.min(rect.left-100,window.innerWidth-280)+'px';
-  m.style.top=Math.min(rect.bottom+5,window.innerHeight-180)+'px';
-  setTimeout(()=>document.addEventListener('click',function c(e){if(!m.contains(e.target)){m.remove();document.removeEventListener('click',c);}}),10);
-}
-
-function openModal(idx,action){
-  G_MI=idx;G_MA=action;
-  const t=document.getElementById('modal_title'),b=document.getElementById('modal_body');
-  const scaleOpts=Object.keys(PAY_SCALES).sort().map(s=>`<option value="${s}">${s}</option>`).join('');
-  switch(action){
-    case'upgradation':
-      t.innerHTML='⬆ Upgradation';
-      b.innerHTML=`<div class="modal-error" id="modal_error"></div>
-        <div class="modal-field"><label>Upgradation Type</label><select id="upgrade_type"><option value="">-- Select Type --</option><option value="appointment">On Appointment</option><option value="scale">Upgrade Scale</option></select><div class="hint"><b>On Appointment:</b> Next above stage in upgraded scale.<br><b>Upgrade Scale:</b> Same stage in upgraded scale.</div></div>
-        <div class="modal-field"><label>Upgradation Date</label><input type="date" id="upgrade_date"><div class="hint">Date when upgradation takes effect.</div></div>
-        <div class="modal-field"><label>Upgraded to Scale</label><select id="upgrade_scale"><option value="">-- Select New Scale --</option>${scaleOpts}</select><div class="hint">Target scale for upgradation.</div></div>`;break;
-    case'advinc':
-      t.innerHTML='🎓 Advance Increment';
-      b.innerHTML=`<div class="modal-error" id="modal_error"></div>
-        <div class="modal-field"><label>Number of Advance Increments</label><select id="advinc_count"><option value="">-- Select Count --</option>${[1,2,3,4,5].map(n=>`<option value="${n}">${n} Increment${n>1?'s':''}</option>`).join('')}</select><div class="hint">Select 1 to 5 increments in current scale.</div></div>
-        <div class="modal-field"><label>Effective Date</label><input type="date" id="advinc_date"><div class="hint">Date from which advance increments take effect.</div></div>`;break;
-    case'promotion':
-      t.innerHTML='⭐ Promotion';
-      b.innerHTML=`<div class="modal-error" id="modal_error"></div>
-        <div class="modal-field"><label>Promotion Scale (New Scale)</label><select id="prom_scale"><option value="">-- Select Promoted Scale --</option>${scaleOpts}</select><div class="hint">Select the scale to which the individual is promoted.</div></div>
-        <div class="modal-field"><label>Option / Benefit Availed</label><select id="prom_option"><option value="">-- Select Option --</option><option value="avail">Avail (Option Available)</option><option value="notavail">Not Avail (Option Not Available)</option></select><div class="hint"><b>Avail:</b> Current Stage + Annual Inc of Current Scale + Annual Inc of Promoted Scale = Next Above Stage in Promoted Scale. Skip next annual inc.<br><b>Not Avail:</b> Current Stage + Annual Inc of Promoted Scale = Next Above Stage in Promoted Scale. Normal increment cycle.</div></div>
-        <div class="modal-field"><label>Date of Promotion</label><input type="date" id="prom_date"><div class="hint">Date on which promotion took effect.</div></div>`;break;
-  }
-  document.getElementById('main_modal').classList.add('active');
-}
-
+function openModal(idx,action){G_MI=idx;G_MA=action;const t=document.getElementById('modal_title'),b=document.getElementById('modal_body');const scaleOpts=Object.keys(PAY_SCALES).sort().map(s=>`<option value="${s}">${s}</option>`).join('');switch(action){case'upgradation':t.innerHTML='Upgradation';b.innerHTML=`<div class="modal-error" id="modal_error"></div><div class="modal-field"><label>Upgradation Type</label><select id="upgrade_type"><option value="">-- Select Type --</option><option value="appointment">On Appointment</option><option value="scale">Upgrade Scale</option></select><div class="hint"><b>On Appointment:</b> Next above stage in upgraded scale.<br><b>Upgrade Scale:</b> Same stage in upgraded scale.</div></div><div class="modal-field"><label>Upgradation Date</label><input type="date" id="upgrade_date"><div class="hint">Date when upgradation takes effect.</div></div><div class="modal-field"><label>Upgraded to Scale</label><select id="upgrade_scale"><option value="">-- Select New Scale --</option>${scaleOpts}</select><div class="hint">Target scale for upgradation.</div></div>`;break;case'advinc':t.innerHTML='Advance Increment';b.innerHTML=`<div class="modal-error" id="modal_error"></div><div class="modal-field"><label>Number of Advance Increments</label><select id="advinc_count"><option value="">-- Select Count --</option>${[1,2,3,4,5].map(n=>`<option value="${n}">${n} Increment${n>1?'s':''}</option>`).join('')}</select><div class="hint">Select 1 to 5 increments in current scale.</div></div><div class="modal-field"><label>Effective Date</label><input type="date" id="advinc_date"><div class="hint">Date from which advance increments take effect.</div></div>`;break;case'promotion':t.innerHTML='Promotion';b.innerHTML=`<div class="modal-error" id="modal_error"></div><div class="modal-field"><label>Promotion Scale (New Scale)</label><select id="prom_scale"><option value="">-- Select Promoted Scale --</option>${scaleOpts}</select><div class="hint">Select the scale to which the individual is promoted.</div></div><div class="modal-field"><label>Option / Benefit Availed</label><select id="prom_option"><option value="">-- Select Option --</option><option value="avail">Avail (Option Available)</option><option value="notavail">Not Avail (Option Not Available)</option></select><div class="hint"><b>Avail:</b> Current Stage + Annual Inc of Current Scale + Annual Inc of Promoted Scale = Next Above Stage in Promoted Scale. Skip next annual inc.<br><b>Not Avail:</b> Current Stage + Annual Inc of Promoted Scale = Next Above Stage in Promoted Scale. Normal increment cycle.</div></div><div class="modal-field"><label>Date of Promotion</label><input type="date" id="prom_date"><div class="hint">Date on which promotion took effect.</div></div>`;break;}document.getElementById('main_modal').classList.add('active');}
 function closeModal(){document.getElementById('main_modal').classList.remove('active');G_MA=null;G_MI=null;}
-function sME(m){const e=document.getElementById('modal_error');if(e){e.textContent='⚠ '+m;e.classList.add('show');}}
+function sME(m){const e=document.getElementById('modal_error');if(e){e.textContent=m;e.classList.add('show');}}
 function applyModalAction(){if(G_MA==='upgradation')aU();else if(G_MA==='advinc')aAI();else if(G_MA==='promotion')aP();}
 
-function aU(){
-  const uType=document.getElementById('upgrade_type').value,dS=document.getElementById('upgrade_date').value,s=document.getElementById('upgrade_scale').value;
-  if(!uType||!dS||!s){sME('Please fill all fields.');return;}
-  const d=pD(dS);if(!d||d<G_MD||d>G_RD){sME('Invalid date.');return;}
-  const pr=G_R[G_MI];if(!pr)return;
-  const cP=pr.pay,cS=pr.scale,cRY=pr.scaleRevYear,rY=gARY(s,d),nr=gSE(s,rY);if(!nr)return;
-  let nP,remark;
-  if(uType==='appointment'){nP=fNH(s,rY,cP+1);remark=`On Appointment: Next above stage in ${s}`;}
-  else{const si=gSI(cS,cRY,cP);nP=nr.stages[Math.min(si,nr.stages.length-1)];remark=`Upgrade Scale: Same stage in ${s}`;}
-  const ip=G_MI+1,rB=G_R.slice(0,ip),rA=rP(s,rY,nP,d,false);
-  G_R=[...rB,{id:'r'+Date.now(),eventLabel:`Upgradation to Scale ${s} w.e.f. ${fD(d)}`,date:d,scale:s,scaleRevYear:rY,pay:nP,changeAmt:nP-cP,remark:remark,type:'upgrade',isManual:true,skipNextInc:false},...rA];
-  closeModal();renderTable();
-}
+function aU(){const uType=document.getElementById('upgrade_type').value,dS=document.getElementById('upgrade_date').value,s=document.getElementById('upgrade_scale').value;if(!uType||!dS||!s){sME('Please fill all fields.');return;}const d=pD(dS);if(!d||d<G_MD||d>G_RD){sME('Invalid date.');return;}const pr=G_R[G_MI];if(!pr)return;const cP=pr.pay,cS=pr.scale,cRY=pr.scaleRevYear,rY=gARY(s,d),nr=gSE(s,rY);if(!nr)return;let nP,remark;if(uType==='appointment'){nP=fNH(s,rY,cP+1);remark=`On Appointment: Next above stage in ${s}`;}else{const si=gSI(cS,cRY,cP);nP=nr.stages[Math.min(si,nr.stages.length-1)];remark=`Upgrade Scale: Same stage in ${s}`;}const ip=G_MI+1,rB=G_R.slice(0,ip),rA=rP(s,rY,nP,d,false);G_R=[...rB,{id:'r'+Date.now(),eventLabel:`Upgradation to Scale ${s} w.e.f. ${fD(d)}`,date:d,scale:s,scaleRevYear:rY,pay:nP,changeAmt:nP-cP,remark:remark,type:'upgrade',isManual:true,skipNextInc:false},...rA];closeModal();renderTable();}
+function aAI(){const c=parseInt(document.getElementById('advinc_count').value),dS=document.getElementById('advinc_date').value;if(!c||c<1||c>5||!dS){sME('Please fill all fields.');return;}const d=pD(dS);if(!d||d<G_MD||d>G_RD){sME('Invalid date.');return;}const pr=G_R[G_MI];if(!pr)return;const cP=pr.pay,cS=pr.scale,cRY=pr.scaleRevYear;if(iMS(cS,cRY,cP)){sME('Already at maximum stage.');return;}const nP=aMI(cS,cRY,cP,c),ip=G_MI+1,rB=G_R.slice(0,ip),rA=rP(cS,cRY,nP,d,false);G_R=[...rB,{id:'r'+Date.now(),eventLabel:`Advance Increment (${c}x) w.e.f. ${fD(d)}`,date:d,scale:cS,scaleRevYear:cRY,pay:nP,changeAmt:nP-cP,remark:`${c} Advance Increment(s) for Higher Education`,type:'advinc',isManual:true,skipNextInc:false},...rA];closeModal();renderTable();}
+function aP(){const s=document.getElementById('prom_scale').value,o=document.getElementById('prom_option').value,dS=document.getElementById('prom_date').value;if(!s||!o||!dS){sME('Please fill all fields.');return;}const d=pD(dS);if(!d||d<G_MD||d>G_RD){sME('Invalid date.');return;}const pr=G_R[G_MI];if(!pr)return;const cP=pr.pay,cS=pr.scale,cRY=pr.scaleRevYear;const rY=gARY(s,d),curInc=gInc(cS,cRY),promInc=gInc(s,rY);let total,pP,pR,sk;if(o==='avail'){total=cP+curInc+promInc;pP=fNH(s,rY,total);sk=true;pR=`Avail: ${cP.toLocaleString()}+${curInc}(CurrInc)+${promInc}(PromInc)=${total.toLocaleString()} = Next above in ${s}: ${pP.toLocaleString()}`;}else{total=cP+promInc;pP=fNH(s,rY,total);sk=false;pR=`Not Avail: ${cP.toLocaleString()}+${promInc}(PromInc)=${total.toLocaleString()} = Next above in ${s}: ${pP.toLocaleString()}`;}const ip=G_MI+1,rB=G_R.slice(0,ip),rA=rP(s,rY,pP,d,sk);G_R=[...rB,{id:'r'+Date.now(),eventLabel:`Promotion to Scale ${s} w.e.f. ${fD(d)}`,date:d,scale:s,scaleRevYear:rY,pay:pP,changeAmt:pP-cP,remark:pR,type:'prom',isManual:true,skipNextInc:sk},...rA];closeModal();renderTable();}
+function rP(s,ry,sP,aD,skF){const res=[];let cP=sP,cS=s,cRY=ry,sk=skF;for(const ev of PAY_EVENTS){const ed=pD(ev.date);if(!ed||ed<=aD||ed>G_RD)continue;if(ev.type==='inc'){if(sk){sk=false;res.push({id:'r'+Date.now()+Math.random(),eventLabel:ev.label+' (Skip)',date:ed,scale:cS,scaleRevYear:cRY,pay:cP,changeAmt:0,remark:'Skip',type:'inc-skip'});continue;}if(iMS(cS,cRY,cP)){res.push({id:'r'+Date.now()+Math.random(),eventLabel:ev.label+' (Max)',date:ed,scale:cS,scaleRevYear:cRY,pay:cP,changeAmt:0,remark:'Max',type:'inc'});continue;}const pr=cP;cP=aI(cS,cRY,cP);res.push({id:'r'+Date.now()+Math.random(),eventLabel:ev.label,date:ed,scale:cS,scaleRevYear:cRY,pay:cP,changeAmt:cP-pr,remark:'Inc',type:'inc'});}else if(ev.type==='rev'){if(!gSE(cS,ev.scaleYear))continue;const pr=cP,oRY=cRY;cRY=ev.scaleYear;cP=fOR(cS,oRY,cRY,pr);res.push({id:'r'+Date.now()+Math.random(),eventLabel:ev.label,date:ed,scale:cS,scaleRevYear:cRY,pay:cP,changeAmt:cP-pr,remark:'Revision',type:'rev'});}}if(jN(G_RD)&&!iMS(cS,cRY,cP)){const pr=cP;cP=aI(cS,cRY,cP);res.push({id:'r'+Date.now()+Math.random(),eventLabel:'Pension Inc',date:G_RD,scale:cS,scaleRevYear:cRY,pay:cP,changeAmt:cP-pr,remark:'Pension',type:'pension'});}return res;}
 
-function aAI(){
-  const c=parseInt(document.getElementById('advinc_count').value),dS=document.getElementById('advinc_date').value;
-  if(!c||c<1||c>5||!dS){sME('Please fill all fields.');return;}
-  const d=pD(dS);if(!d||d<G_MD||d>G_RD){sME('Invalid date.');return;}
-  const pr=G_R[G_MI];if(!pr)return;
-  const cP=pr.pay,cS=pr.scale,cRY=pr.scaleRevYear;
-  if(iMS(cS,cRY,cP)){sME('Already at maximum stage.');return;}
-  const nP=aMI(cS,cRY,cP,c),ip=G_MI+1,rB=G_R.slice(0,ip),rA=rP(cS,cRY,nP,d,false);
-  G_R=[...rB,{id:'r'+Date.now(),eventLabel:`Advance Increment (${c}x) w.e.f. ${fD(d)}`,date:d,scale:cS,scaleRevYear:cRY,pay:nP,changeAmt:nP-cP,remark:`${c} Advance Increment(s) for Higher Education`,type:'advinc',isManual:true,skipNextInc:false},...rA];
-  closeModal();renderTable();
-}
-
-function aP(){
-  const s=document.getElementById('prom_scale').value,o=document.getElementById('prom_option').value,dS=document.getElementById('prom_date').value;
-  if(!s||!o||!dS){sME('Please fill all fields.');return;}
-  const d=pD(dS);if(!d||d<G_MD||d>G_RD){sME('Invalid date.');return;}
-  const pr=G_R[G_MI];if(!pr)return;
-  const cP=pr.pay,cS=pr.scale,cRY=pr.scaleRevYear;
-  const rY=gARY(s,d),curInc=gInc(cS,cRY),promInc=gInc(s,rY);
-  let total,pP,pR,sk;
-  if(o==='avail'){total=cP+curInc+promInc;pP=fNH(s,rY,total);sk=true;pR=`Avail: ${cP.toLocaleString()}+${curInc}(CurrInc)+${promInc}(PromInc)=${total.toLocaleString()} → Next above in ${s}: ${pP.toLocaleString()}`;}
-  else{total=cP+promInc;pP=fNH(s,rY,total);sk=false;pR=`Not Avail: ${cP.toLocaleString()}+${promInc}(PromInc)=${total.toLocaleString()} → Next above in ${s}: ${pP.toLocaleString()}`;}
-  const ip=G_MI+1,rB=G_R.slice(0,ip),rA=rP(s,rY,pP,d,sk);
-  G_R=[...rB,{id:'r'+Date.now(),eventLabel:`Promotion to Scale ${s} w.e.f. ${fD(d)}`,date:d,scale:s,scaleRevYear:rY,pay:pP,changeAmt:pP-cP,remark:pR,type:'prom',isManual:true,skipNextInc:sk},...rA];
-  closeModal();renderTable();
-}
-
-function rP(s,ry,sP,aD,skF){
-  const res=[];let cP=sP,cS=s,cRY=ry,sk=skF;
-  for(const ev of PAY_EVENTS){const ed=pD(ev.date);if(!ed||ed<=aD||ed>G_RD)continue;
-    if(ev.type==='inc'){if(sk){sk=false;res.push({id:'r'+Date.now()+Math.random(),eventLabel:ev.label+' (Skip)',date:ed,scale:cS,scaleRevYear:cRY,pay:cP,changeAmt:0,remark:'Skip',type:'inc-skip'});continue;}
-      if(iMS(cS,cRY,cP)){res.push({id:'r'+Date.now()+Math.random(),eventLabel:ev.label+' (Max)',date:ed,scale:cS,scaleRevYear:cRY,pay:cP,changeAmt:0,remark:'Max',type:'inc'});continue;}
-      const pr=cP;cP=aI(cS,cRY,cP);res.push({id:'r'+Date.now()+Math.random(),eventLabel:ev.label,date:ed,scale:cS,scaleRevYear:cRY,pay:cP,changeAmt:cP-pr,remark:'Inc',type:'inc'});}
-    else if(ev.type==='rev'){if(!gSE(cS,ev.scaleYear))continue;const pr=cP,oRY=cRY;cRY=ev.scaleYear;cP=fOR(cS,oRY,cRY,pr);res.push({id:'r'+Date.now()+Math.random(),eventLabel:ev.label,date:ed,scale:cS,scaleRevYear:cRY,pay:cP,changeAmt:cP-pr,remark:'Revision',type:'rev'});}
-  }
-  if(jN(G_RD)&&!iMS(cS,cRY,cP)){const pr=cP;cP=aI(cS,cRY,cP);res.push({id:'r'+Date.now()+Math.random(),eventLabel:'Pension Inc',date:G_RD,scale:cS,scaleRevYear:cRY,pay:cP,changeAmt:cP-pr,remark:'Pension',type:'pension'});}
-  return res;
-}
-
-/* ================================================================
-   PRINT & PDF
-   ================================================================ */
-function openPrintPreview(){
-  if(!G_R.length){alert('Calculate first.');return;}
-  const en=document.getElementById('inp_enrol').value||'—',m=document.getElementById('inp_mustred').value||'—',r=document.getElementById('inp_retire').value||'—',s=document.getElementById('inp_scale').value||'—';
-  let tR='';G_R.forEach((r,i)=>{r.sno=i+1;const sc=gSS(r.scale,r.scaleRevYear),ch=r.changeAmt>0?'+'+r.changeAmt.toLocaleString():(r.changeAmt<0?r.changeAmt.toLocaleString():'—');const isHighlight=['mustered','rev','pension','prom','upgrade','advinc'].includes(r.type);const bg=r.type==='mustered'?'#f0f0ff':r.type==='rev'?'#fff3f3':r.type==='pension'?'#f0f8ff':r.type==='prom'?'#fdf0ff':r.type==='upgrade'?'#fff8f0':r.type==='advinc'?'#f0fff4':'#fff';const fw=isHighlight?'font-weight:bold;':'';tR+=`<tr style="background:${bg};${fw}"><td style="padding:6px;border:1px solid #999;">${r.sno}</td><td style="padding:6px;border:1px solid #999;">${r.eventLabel}</td><td style="padding:6px;border:1px solid #999;font-size:10px;">${r.scale}<br>(${sc})</td><td style="padding:6px;border:1px solid #999;font-weight:bold;">${r.pay.toLocaleString()}</td><td style="padding:6px;border:1px solid #999;color:${r.changeAmt>0?'#2e7d32':r.changeAmt<0?'#c62828':'#000'};">${ch}</td><td style="padding:6px;border:1px solid #999;font-size:10px;">${r.remark}</td></tr>`;});
-  const lR=G_R[G_R.length-1];
-  document.getElementById('print_preview_content').innerHTML=`<div style="text-align:center;font-size:20px;font-weight:bold;padding:10px;border:2px solid #1a1a1a;margin-bottom:15px;">Pay Detail Summary</div><h3 style="text-align:center;margin-bottom:8px;">Individual Particulars</h3><table style="width:100%;border-collapse:collapse;font-size:12px;margin-bottom:20px;border:2px solid #1a1a1a;"><tr><td style="padding:8px;border:1px solid #999;font-weight:bold;background:#f5f5f5;width:200px;">Date of Enrolment</td><td style="padding:8px;border:1px solid #999;">${en}</td></tr><tr><td style="padding:8px;border:1px solid #999;font-weight:bold;background:#f5f5f5;">Date of Mustered (Pass Out)</td><td style="padding:8px;border:1px solid #999;">${m}</td></tr><tr><td style="padding:8px;border:1px solid #999;font-weight:bold;background:#f5f5f5;">Pay Scale</td><td style="padding:8px;border:1px solid #999;">${s}</td></tr><tr><td style="padding:8px;border:1px solid #999;font-weight:bold;background:#f5f5f5;">Date of Retirement</td><td style="padding:8px;border:1px solid #999;">${r}</td></tr></table><h3 style="text-align:center;background:#1a1a1a;color:#fff;padding:10px;margin:0;">Year-Wise Pay Details</h3><table style="width:100%;border-collapse:collapse;font-size:11px;border:2px solid #1a1a1a;"><thead><tr style="background:#1a1a1a;color:#fff;"><th style="padding:8px;border:1px solid #444;">S.No</th><th style="padding:8px;border:1px solid #444;">Pay Details</th><th style="padding:8px;border:1px solid #444;">Pay Scale</th><th style="padding:8px;border:1px solid #444;">Basic Pay (Rs)</th><th style="padding:8px;border:1px solid #444;">Change (Rs)</th><th style="padding:8px;border:1px solid #444;">Remarks</th></tr></thead><tbody>${tR}</tbody></table><div style="font-weight:bold;padding:12px;border:2px solid #1a1a1a;border-top:none;">Final Basic Pay at Retirement: Rs. ${lR.pay.toLocaleString()} | Scale: ${lR.scale}</div>`;
-  document.getElementById('print_preview_overlay').classList.add('active');
-}
+function openPrintPreview(){if(!G_R.length){alert('Calculate first.');return;}const nm=document.getElementById('inp_name').value||'—',en=document.getElementById('inp_enrol').value||'—',m=document.getElementById('inp_mustred').value||'—',r=document.getElementById('inp_retire').value||'—',s=document.getElementById('inp_scale').value||'—';let tR='';G_R.forEach((r,i)=>{r.sno=i+1;const sc=gSS(r.scale,r.scaleRevYear),ch=r.changeAmt>0?'+'+r.changeAmt.toLocaleString():(r.changeAmt<0?r.changeAmt.toLocaleString():'—');const isHighlight=['mustered','rev','pension','prom','upgrade','advinc'].includes(r.type);const bg=r.type==='mustered'?'#f0f0ff':r.type==='rev'?'#fff3f3':r.type==='pension'?'#f0f8ff':r.type==='prom'?'#fdf0ff':r.type==='upgrade'?'#fff8f0':r.type==='advinc'?'#f0fff4':'#fff';const fw=isHighlight?'font-weight:bold;':'';tR+=`<tr style="background:${bg};${fw}"><td style="padding:6px;border:1px solid #000;color:#1a1a1a;">${r.sno}</td><td style="padding:6px;border:1px solid #000;color:#1a1a1a;">${r.eventLabel}</td><td style="padding:6px;border:1px solid #000;font-size:10px;color:#1a1a1a;">${r.scale}<br>(${sc})</td><td style="padding:6px;border:1px solid #000;font-weight:bold;color:#1a1a1a;">${r.pay.toLocaleString()}</td><td style="padding:6px;border:1px solid #000;color:${r.changeAmt>0?'#2e7d32':r.changeAmt<0?'#c62828':'#1a1a1a'};">${ch}</td><td style="padding:6px;border:1px solid #000;font-size:10px;color:#1a1a1a;">${r.remark}</td></tr>`;});const lR=G_R[G_R.length-1];document.getElementById('print_preview_content').innerHTML=`<div style="text-align:center;font-size:22px;font-weight:bold;font-family:'Arial Black',Arial,sans-serif;padding:12px;border:2px solid #000;margin-bottom:15px;color:#000;">Pay Detail Summary</div><h3 style="text-align:center;margin-bottom:8px;color:#000;">Individual Particulars</h3><table style="width:100%;border-collapse:collapse;font-size:12px;margin-bottom:20px;border:2px solid #000;"><tr><td style="padding:8px;border:1px solid #000;font-weight:bold;background:#f0f0f0;width:200px;color:#000;">Full Name</td><td style="padding:8px;border:1px solid #000;color:#000;">${nm}</td></tr><tr><td style="padding:8px;border:1px solid #000;font-weight:bold;background:#f0f0f0;color:#000;">Date of Enrolment</td><td style="padding:8px;border:1px solid #000;color:#000;">${en}</td></tr><tr><td style="padding:8px;border:1px solid #000;font-weight:bold;background:#f0f0f0;color:#000;">Date of Mustered (Pass Out)</td><td style="padding:8px;border:1px solid #000;color:#000;">${m}</td></tr><tr><td style="padding:8px;border:1px solid #000;font-weight:bold;background:#f0f0f0;color:#000;">Pay Scale</td><td style="padding:8px;border:1px solid #000;color:#000;">${s}</td></tr><tr><td style="padding:8px;border:1px solid #000;font-weight:bold;background:#f0f0f0;color:#000;">Date of Retirement</td><td style="padding:8px;border:1px solid #000;color:#000;">${r}</td></tr></table><h3 style="text-align:center;background:#000;color:#fff;padding:10px;margin:0;">Year-Wise Pay Details</h3><table style="width:100%;border-collapse:collapse;font-size:11px;border:2px solid #000;"><thead><tr style="background:#000;color:#fff;"><th style="padding:8px;border:1px solid #000;">S.No</th><th style="padding:8px;border:1px solid #000;">Pay Details</th><th style="padding:8px;border:1px solid #000;">Pay Scale</th><th style="padding:8px;border:1px solid #000;">Basic Pay (Rs)</th><th style="padding:8px;border:1px solid #000;">Change (Rs)</th><th style="padding:8px;border:1px solid #000;">Remarks</th></tr></thead><tbody>${tR}</tbody></table><div style="font-weight:bold;padding:12px;border:2px solid #000;border-top:none;color:#000;">Final Basic Pay at Retirement: Rs. ${lR.pay.toLocaleString()} | Scale: ${lR.scale}</div><div style="text-align:center;padding:10px;margin-top:15px;border-top:1px solid #ccc;font-size:10px;color:#555;">Pay Verification System - Designed by Mohsin Khan | Contact: 0312-3883319</div>`;document.getElementById('print_preview_overlay').classList.add('active');}
 function closePrintPreview(){document.getElementById('print_preview_overlay').classList.remove('active');}
-function printDocument(){const c=document.getElementById('print_preview_content').innerHTML;const pw=window.open('','_blank','width=900,height=700');if(!pw)return;pw.document.write(`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Pay Detail</title><style>body{font-family:sans-serif;padding:20px;}@page{size:letter;margin:12mm;}</style></head><body>${c}</body></html>`);pw.document.close();setTimeout(()=>pw.print(),500);}
+function printDocument(){const c=document.getElementById('print_preview_content').innerHTML;const pw=window.open('','_blank','width=900,height=700');if(!pw)return;pw.document.write(`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Pay Detail Summary</title><style>body{font-family:sans-serif;padding:20px;color:#000;}@page{size:A4;margin:12mm;}@media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact;}}</style></head><body>${c}</body></html>`);pw.document.close();setTimeout(()=>pw.print(),500);}
 function saveAsPDF(){printDocument();}
 function showErr(m){const e=document.getElementById('error_area');e.textContent=m;e.classList.remove('hidden');}
 
-/* ================================================================
-   GLOBAL EVENT LISTENERS
-   ================================================================ */
 document.getElementById('main_modal').addEventListener('click',function(e){if(e.target===this)closeModal();});
 document.getElementById('confirm_modal').addEventListener('click',function(e){if(e.target===this)closeConfirmModal();});
 document.getElementById('print_preview_overlay').addEventListener('click',function(e){if(e.target===this)closePrintPreview();});
 document.addEventListener('keydown',function(e){if(e.key==='Escape'){document.getElementById('action_menu')?.remove();closeModal();closeConfirmModal();closePrintPreview();document.getElementById('view_modal')?.classList.remove('active');}});
+document.addEventListener('keydown',function(e){if((e.ctrlKey||e.metaKey)&&(e.key==='s'||e.key==='S'||e.key==='c'||e.key==='C'||e.key==='u'||e.key==='U')){e.preventDefault();return false;}});
 </script>
 </body>
 </html>
